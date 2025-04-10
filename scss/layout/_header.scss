@@ -1,0 +1,90 @@
+// Header styles
+
+.header {
+  background-color: $color-white;
+  box-shadow: $shadow-sm;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  transition: all $transition;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $spacing-md 0;
+  height: 70px;
+}
+
+.logo {
+  font-family: $font-family-heading;
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $color-primary;
+  text-decoration: none;
+}
+
+.nav-menu {
+  @media (max-width: $breakpoint-md) {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background-color: $color-white;
+    box-shadow: $shadow;
+    padding: $spacing-md;
+    display: none;
+    
+    &.active {
+      display: block;
+    }
+  }
+}
+
+.nav-list {
+  display: flex;
+  
+  @media (max-width: $breakpoint-md) {
+    flex-direction: column;
+  }
+}
+
+.nav-item {
+  margin-left: $spacing-lg;
+  
+  @media (max-width: $breakpoint-md) {
+    margin-left: 0;
+    margin-bottom: $spacing-sm;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.nav-link {
+  color: $color-text;
+  font-weight: $font-weight-medium;
+  padding: $spacing-xs $spacing-sm;
+  text-decoration: none;
+  transition: color $transition;
+  
+  &:hover {
+    color: $color-primary;
+  }
+  
+  &.active {
+    color: $color-primary;
+    font-weight: $font-weight-semibold;
+  }
+}
+
+// Page header
+.page-header {
+  background-color: $color-background;
+  padding: 120px 0 $spacing-2xl;
+  text-align: center;
+}

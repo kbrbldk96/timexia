@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hakkımızda | Timexia</title>
+    <meta name="description" content="Timexia hakkında daha fazla bilgi edinin ve bizimle iletişime geçin.">
+    
+    <!-- Fontlar -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Stil Dosyası -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="about">
+    <!-- Header -->
+    <div data-include="header"></div>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-title">Hakkımızda</h1>
+                <p class="page-description">Timexia'nın hikayesi ve misyonu</p>
+            </div>
+        </section>
+
+        <section class="about-section">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2>Biz Kimiz?</h2>
+                        <p>
+                            Timexia, bireysel hizmet sağlayıcılar ve küçük işletmelerin dijital dönüşümünü desteklemek amacıyla kurulmuş bir girişimdir. 
+                            Amacımız, randevu teknolojisini herkes için erişilebilir kılmak ve işletmelerin müşterileriyle olan ilişkilerini güçlendirmektir.
+                        </p>
+                        
+                        <h2>Misyonumuz</h2>
+                        <p>
+                            Kullanımı kolay, güvenilir ve uygun maliyetli bir randevu sistemi sunarak küçük işletmelerin dijital varlıklarını güçlendirmek ve 
+                            müşteri deneyimini iyileştirmektir. Her işletmenin kendine özel bir dijital kimlik oluşturmasına yardımcı olmayı hedefliyoruz.
+                        </p>
+                        
+                        <h2>Vizyonumuz</h2>
+                        <p>
+                            Randevu yönetiminde sektör lideri olmak ve tüm dünyada milyonlarca küçük işletmeye hizmet vererek 
+                            onların büyümelerine ve başarılı olmalarına katkıda bulunmak.
+                        </p>
+                    </div>
+                    
+                    <div class="about-image">
+                        <img src="images/about-image.jpg" alt="Timexia Ekibi">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">İletişim</h2>
+                    <p class="section-description">Sorularınız için bize ulaşın</p>
+                </div>
+                
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <div class="info-item">
+                            <h4>E-posta</h4>
+                            <p><a href="mailto:info@timexia.io">info@timexia.io</a></p>
+                        </div>
+                        
+                        <div class="info-item">
+                            <h4>Telefon</h4>
+                            <p><a href="tel:+901234567890">+90 123 456 78 90</a></p>
+                        </div>
+                        
+                        <div class="info-item">
+                            <h4>Adres</h4>
+                            <p>Timexia Ltd. Şti.<br>Teknoloji Vadisi, No:123<br>İstanbul, Türkiye</p>
+                        </div>
+                    </div>
+                    
+                    <form name="contact" method="POST" class="contact-form" data-netlify="true">
+                        <div class="form-group">
+                            <label for="contact-name">Adınız Soyadınız</label>
+                            <input type="text" id="contact-name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contact-email">E-posta Adresiniz</label>
+                            <input type="email" id="contact-email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contact-subject">Konu</label>
+                            <input type="text" id="contact-subject" name="subject" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contact-message">Mesajınız</label>
+                            <textarea id="contact-message" name="message" rows="5" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Mesajı Gönder</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <div data-include="footer"></div>
+
+    <!-- JavaScript -->
+    <script src="js/include.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

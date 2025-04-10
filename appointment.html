@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Randevu Al | Timexia</title>
+    <meta name="description" content="Timexia ile hızlı ve kolay bir şekilde randevu alın.">
+    
+    <!-- Fontlar -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Stil Dosyası -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="appointment">
+    <!-- Header -->
+    <div data-include="header"></div>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-title">Randevu Al</h1>
+                <p class="page-description">Hizmetlerimiz için online randevu oluşturun</p>
+            </div>
+        </section>
+
+        <section class="appointment-section">
+            <div class="container">
+                <div class="appointment-container">
+                    <form name="appointment" method="POST" class="appointment-form" data-netlify="true">
+                        <div class="form-group">
+                            <label for="name">Adınız Soyadınız</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">E-posta Adresiniz</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Telefon Numaranız</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service">Hizmet Seçin</label>
+                            <select id="service" name="service" required>
+                                <option value="">Hizmet seçin</option>
+                                <option value="haircut">Saç Kesimi</option>
+                                <option value="massage">Masaj</option>
+                                <option value="makeup">Makyaj</option>
+                                <option value="consultation">Danışmanlık</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="date">Tarih</label>
+                                <input type="date" id="date" name="date" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="time">Saat</label>
+                                <input type="time" id="time" name="time" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="notes">Notlar (Opsiyonel)</label>
+                            <textarea id="notes" name="notes" rows="3"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-block">Randevuyu Onayla</button>
+                    </form>
+                    
+                    <div class="appointment-info">
+                        <h3>Randevu Bilgileri</h3>
+                        <p>Randevu talebiniz alındıktan sonra e-posta adresinize onay gönderilecektir.</p>
+                        
+                        <div class="info-block">
+                            <h4>Çalışma Saatleri</h4>
+                            <ul>
+                                <li><strong>Pazartesi - Cuma:</strong> 09:00 - 18:00</li>
+                                <li><strong>Cumartesi:</strong> 10:00 - 16:00</li>
+                                <li><strong>Pazar:</strong> Kapalı</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="info-block">
+                            <h4>İptal Politikası</h4>
+                            <p>Randevunuzu 24 saat öncesinden iptal etmeniz durumunda herhangi bir ücret alınmayacaktır.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <div data-include="footer"></div>
+
+    <!-- JavaScript -->
+    <script src="js/include.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

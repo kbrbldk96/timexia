@@ -1,0 +1,73 @@
+// Card Styles
+
+.feature-card {
+  background-color: $color-white;
+  padding: $spacing-xl;
+  border-radius: $border-radius;
+  box-shadow: $shadow;
+  transition: all $transition;
+  text-align: center;
+  height: 100%;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: $shadow-lg;
+  }
+  
+  .feature-icon {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba($color-primary, 0.1);
+    border-radius: $border-radius;
+    margin: 0 auto $spacing-lg;
+    
+    img {
+      width: 32px;
+      height: 32px;
+    }
+  }
+  
+  .feature-title {
+    margin-bottom: $spacing-md;
+  }
+  
+  .feature-description {
+    color: $color-text-light;
+    margin-bottom: 0;
+  }
+}
+
+.appointment-info {
+  background-color: $color-white;
+  padding: $spacing-xl;
+  border-radius: $border-radius;
+  box-shadow: $shadow;
+  
+  @media (min-width: $breakpoint-md) {
+    flex: 1;
+  }
+  
+  h3 {
+    margin-bottom: $spacing-md;
+  }
+  
+  .info-block {
+    margin-top: $spacing-lg;
+    
+    h4 {
+      margin-bottom: $spacing-sm;
+    }
+    
+    ul {
+      list-style-type: disc;
+      padding-left: $spacing-lg;
+      
+      li {
+        margin-bottom: $spacing-xs;
+      }
+    }
+  }
+}

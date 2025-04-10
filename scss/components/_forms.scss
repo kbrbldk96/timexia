@@ -1,0 +1,82 @@
+// Forms
+
+.form-group {
+  margin-bottom: $spacing-md;
+  
+  label {
+    display: block;
+    font-weight: $font-weight-medium;
+    margin-bottom: $spacing-xs;
+    color: $color-heading;
+  }
+  
+  input,
+  select,
+  textarea {
+    width: 100%;
+    padding: $spacing-sm $spacing-md;
+    border: 1px solid $color-grey;
+    border-radius: $border-radius;
+    background-color: $color-white;
+    transition: border-color $transition;
+    
+    &:focus {
+      outline: none;
+      border-color: $color-primary;
+      box-shadow: 0 0 0 3px rgba($color-primary, 0.1);
+    }
+    
+    &.error {
+      border-color: $color-error;
+      
+      &:focus {
+        box-shadow: 0 0 0 3px rgba($color-error, 0.1);
+      }
+    }
+  }
+  
+  textarea {
+    resize: vertical;
+  }
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -$spacing-sm;
+  margin-left: -$spacing-sm;
+  
+  .form-group {
+    flex: 1 0 0%;
+    padding-left: $spacing-sm;
+    padding-right: $spacing-sm;
+  }
+}
+
+// Appointment Form
+.appointment-form {
+  background-color: $color-white;
+  padding: $spacing-xl;
+  border-radius: $border-radius;
+  box-shadow: $shadow;
+  margin-bottom: $spacing-xl;
+  
+  @media (min-width: $breakpoint-md) {
+    flex: 1;
+    margin-right: $spacing-xl;
+    margin-bottom: 0;
+  }
+}
+
+// Contact Form
+.contact-form {
+  background-color: $color-white;
+  padding: $spacing-xl;
+  border-radius: $border-radius;
+  box-shadow: $shadow;
+  
+  @media (min-width: $breakpoint-md) {
+    flex: 1;
+    margin-left: $spacing-xl;
+  }
+}

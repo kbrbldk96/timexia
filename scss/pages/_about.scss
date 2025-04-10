@@ -1,0 +1,46 @@
+// About page specific styles
+
+.about-section {
+  padding-bottom: 0;
+}
+
+.contact-section {
+  padding-top: $spacing-2xl;
+  
+  .contact-info {
+    background-color: $color-white;
+    padding: $spacing-xl;
+    border-radius: $border-radius;
+    box-shadow: $shadow;
+    
+    @media (min-width: $breakpoint-md) {
+      flex: 1;
+    }
+  }
+  
+  .info-item {
+    margin-bottom: $spacing-lg;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+    
+    h4 {
+      margin-bottom: $spacing-xs;
+      color: $color-primary;
+    }
+    
+    p {
+      margin-bottom: 0;
+    }
+    
+    a {
+      color: $color-text;
+      transition: color $transition;
+      
+      &:hover {
+        color: $color-primary;
+      }
+    }
+  }
+}

@@ -1,0 +1,70 @@
+// Navigation styles
+
+// Mobile navigation button is defined in _buttons.scss
+// Most of the navigation styles are in _header.scss
+// This file contains additional navigation components
+
+// Breadcrumb navigation
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: $spacing-lg;
+  
+  li {
+    display: flex;
+    align-items: center;
+    
+    &:not(:last-child)::after {
+      content: "/";
+      margin: 0 $spacing-sm;
+      color: $color-grey;
+    }
+    
+    a {
+      color: $color-text-light;
+      
+      &:hover {
+        color: $color-primary;
+      }
+    }
+    
+    &.active {
+      color: $color-primary;
+    }
+  }
+}
+
+// Pagination
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: $spacing-2xl;
+  
+  .page-item {
+    margin: 0 $spacing-xs;
+    
+    .page-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: $border-radius;
+      border: 1px solid $color-grey;
+      color: $color-text;
+      transition: all $transition;
+      
+      &:hover {
+        background-color: $color-primary;
+        border-color: $color-primary;
+        color: $color-white;
+      }
+    }
+    
+    &.active .page-link {
+      background-color: $color-primary;
+      border-color: $color-primary;
+      color: $color-white;
+    }
+  }
+}

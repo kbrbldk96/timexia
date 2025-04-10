@@ -1,11 +1,95 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Timexia</title>
+    <title>Timexia | Online Randevu Sistemi</title>
+    <meta name="description" content="Timexia ile işletmeniz için hızlı ve kolay randevu sistemi kurun.">
+    
+    <!-- Fontlar -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Stil Dosyası -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-    <h1>Welcome to Timexia</h1>
+<body data-page="index">
+    <!-- Header -->
+    <div data-include="header"></div>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">İşletmeniz İçin Kolay ve Hızlı Randevu Sistemi</h1>
+                    <p class="hero-description">
+                        Timexia ile müşterileriniz 7/24 online randevu alabilir, siz de zaman kazanarak işinize odaklanabilirsiniz.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="appointment.html" class="btn btn-primary">Hemen Randevu Al</a>
+                        <a href="#features" class="btn btn-outline">Daha Fazla Bilgi</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="images/hero-image.svg" alt="Timexia Randevu Sistemi">
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Timexia ile Neler Yapabilirsiniz?</h2>
+                    <p class="section-description">Bireysel ve kurumsal ihtiyaçlarınız için tasarlanmış özellikler</p>
+                </div>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <img src="images/icons/calendar.svg" alt="Randevu İkonu">
+                        </div>
+                        <h3 class="feature-title">Kişiselleştirilmiş Alt Alan Adı</h3>
+                        <p class="feature-description">kuaforxyz.timexia.io gibi size özel alan adı ile müşterilerinize profesyonel bir deneyim sunun.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <img src="images/icons/service.svg" alt="Hizmet İkonu">
+                        </div>
+                        <h3 class="feature-title">Hizmet Yönetimi</h3>
+                        <p class="feature-description">Hizmetlerinizi kolayca listeleyin ve düzenleyin, fiyatları ve süreleri belirleyin.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <img src="images/icons/notification.svg" alt="Bildirim İkonu">
+                        </div>
+                        <h3 class="feature-title">Otomatik Bildirimler</h3>
+                        <p class="feature-description">Müşterilerinize otomatik onay ve hatırlatma bildirimleri gönderin.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta">
+            <div class="container">
+                <div class="cta-content">
+                    <h2 class="cta-title">Hemen Başlayın</h2>
+                    <p class="cta-description">
+                        Dijital dönüşümünüzü bugün başlatın ve işinizi büyütün.
+                    </p>
+                    <a href="appointment.html" class="btn btn-primary">Randevu Sistemini Kullan</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <div data-include="footer"></div>
+
+    <!-- JavaScript -->
+    <script src="js/include.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

@@ -1,0 +1,18 @@
+{
+  "name": "timexia",
+  "version": "1.0.0",
+  "description": "Timexia online randevu sistemi",
+  "scripts": {
+    "css-compile": "sass --style=compressed --source-map scss/style.scss:css/style.css",
+    "css-watch": "sass --watch --style=compressed --source-map scss/style.scss:css/style.css",
+    "css-optimize": "clean-css-cli css/style.css -o css/style.min.css",
+    "build": "npm run css-compile && npm run css-optimize",
+    "start": "npm run css-watch"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "clean-css-cli": "^5.6.2",
+    "sass": "^1.69.0"
+  }
+}

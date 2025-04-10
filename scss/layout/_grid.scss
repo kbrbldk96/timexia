@@ -1,0 +1,87 @@
+// Grid System
+
+// Section spacing
+section {
+  padding: $spacing-3xl 0;
+  
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-2xl 0;
+  }
+}
+
+// Flex grid components
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.col {
+  flex: 1 0 0%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+// Features Grid
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: $spacing-xl;
+  margin-top: $spacing-2xl;
+  
+  @media (max-width: $breakpoint-sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Appointment Container
+.appointment-container {
+  display: flex;
+  flex-direction: column;
+  
+  @media (min-width: $breakpoint-md) {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+// Contact Container
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  
+  @media (min-width: $breakpoint-md) {
+    flex-direction: row;
+  }
+}
+
+// About Content
+.about-content {
+  display: flex;
+  flex-direction: column;
+  
+  @media (min-width: $breakpoint-md) {
+    flex-direction: row;
+  }
+  
+  .about-text {
+    flex: 2;
+  }
+  
+  .about-image {
+    flex: 1;
+    
+    @media (min-width: $breakpoint-md) {
+      margin-left: $spacing-xl;
+    }
+    
+    @media (max-width: $breakpoint-md) {
+      margin-top: $spacing-xl;
+    }
+    
+    img {
+      border-radius: $border-radius;
+    }
+  }
+}
