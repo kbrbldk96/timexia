@@ -1,44 +1,12 @@
 /**
  * HTML Parçalarını Yükleme Sistemi
- * Bu dosya head, header ve footer gibi tekrar eden HTML parçalarını sayfalara dahil eder
+ * Bu dosya header ve footer gibi tekrar eden HTML parçalarını sayfalara dahil eder
  */
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Head içeriğini yükle (eğer varsa)
-    loadHeadContent();
-    
-    // Body içindeki include elementlerini bul ve yükle
+    // Body içindeki include elementlerini bul ve yükle (sadece header ve footer)
     const bodyIncludes = document.querySelectorAll('body [data-include]');
     bodyIncludes.forEach(element => loadPartial(element));
-    
-    /**
-     * Head içeriğini yükler
-     */
-    function loadHeadContent() {
-        const headInclude = document.querySelector('head [data-include]');
-        if (!headInclude) return;
-        
-        const partialName = headInclude.getAttribute('data-include');
-        
-        // Head içeriğini fetch ile yüklemeyi dene
-        fetch(`partials/${partialName}.html`)
-            .then(response => {
-                if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
-                return response.text();
-            })
-            .then(html => {
-                headInclude.insertAdjacentHTML('beforebegin', html);
-                headInclude.remove();
-            })
-            .catch(() => {
-                // Fetch başarısız olursa inline içeriği kullan
-                const headContent = getInlinePartial(partialName);
-                if (headContent) {
-                    headInclude.insertAdjacentHTML('beforebegin', headContent);
-                    headInclude.remove();
-                }
-            });
-    }
     
     /**
      * HTML parçasını element içine yükler
@@ -57,6 +25,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (partialName === 'header') {
                     setActivePage();
                     initMobileMenu();
+                    
+                    // HTML parçaları yüklendikten sonra çeviri sistemini tetikle
+                    const event = new CustomEvent('partialLoaded', { detail: partialName });
+                    document.dispatchEvent(event);
                 }
             })
             .catch(() => {
@@ -81,29 +53,6 @@ document.addEventListener('DOMContentLoaded', function() {
     function getInlinePartial(partialName) {
         // HTML parçaları burada tanımlanır (fetch başarısız olursa yedek olarak)
         const partials = {
-            head: `
-                <meta charset="UTF-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>Timexia | Online Randevu Sistemi</title>
-                <meta name="description" content="Timexia ile işletmeniz için hızlı ve kolay randevu sistemi kurun.">
-                
-                <!-- Favicon -->
-                <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
-                <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
-                <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
-                <link rel="manifest" href="images/favicon/site.webmanifest">
-                <link rel="mask-icon" href="images/favicon/safari-pinned-tab.svg" color="#5f44f2">
-                <meta name="msapplication-TileColor" content="#5f44f2">
-                <meta name="theme-color" content="#ffffff">
-                
-                <!-- Fontlar -->
-                <link rel="preconnect" href="https://fonts.googleapis.com">
-                <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-                <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
-                
-                <!-- Stil Dosyası -->
-                <link rel="stylesheet" href="css/style.css">
-            `,
             header: `
                 <header class="header">
                     <div class="container">

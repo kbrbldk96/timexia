@@ -1,6 +1,37 @@
 // Main JavaScript file
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Loader handling
+  const loader = document.getElementById('loader');
+  
+  // Hide loader when everything is loaded
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      loader.classList.add('hidden');
+    }, 500); // 500ms delay for smooth transition
+  });
+  
+  // Show loader on page navigation
+  document.querySelectorAll('a').forEach(link => {
+    // Only for internal links that lead to other pages
+    if (link.href && link.hostname === window.location.hostname && !link.href.includes('#')) {
+      link.addEventListener('click', (e) => {
+        // Don't show loader for same-page navigation
+        const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+        const linkPath = link.pathname.split('/').pop() || 'index.html';
+        
+        if (currentPath !== linkPath) {
+          e.preventDefault();
+          loader.classList.remove('hidden');
+          
+          setTimeout(() => {
+            window.location.href = link.href;
+          }, 300); // Short delay to show loader
+        }
+      });
+    }
+  });
+  
   // Mobile navigation toggle
   const mobileNavBtn = document.querySelector('.btn-mobile-nav');
   const navMenu = document.querySelector('.nav-menu');

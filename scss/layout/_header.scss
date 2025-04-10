@@ -20,14 +20,122 @@
 }
 
 .logo {
-  font-family: $font-family-heading;
+  font-family: $font-family-body;
   font-size: $font-size-xl;
   font-weight: $font-weight-bold;
   color: $color-primary;
   text-decoration: none;
 }
 
+// Dil seçim menüsü stilleri
+.language-selector {
+  position: relative;
+  margin-left: $spacing-md;
+  z-index: 102; // Diğer elementlerin üzerinde olmasını sağlamak için z-index değeri
+  
+  @media (max-width: $breakpoint-md) {
+    margin-left: 0;
+    margin-top: $spacing-md;
+  }
+  
+  .current-lang {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: $spacing-xs $spacing-sm;
+    border-radius: $border-radius-sm;
+    transition: all $transition;
+    
+    &:hover {
+      background-color: rgba($color-primary, 0.05);
+    }
+    
+    .flag {
+      width: 20px;
+      height: 15px;
+      margin-right: $spacing-xs;
+      object-fit: cover; // Bayrak görüntüsü için daha iyi uyum
+    }
+    
+    .lang-code {
+      font-weight: $font-weight-medium;
+      text-transform: uppercase;
+      font-size: $font-size-small;
+      color: $color-primary;
+    }
+    
+    .arrow-down {
+      margin-left: $spacing-xs;
+      width: 8px;
+      height: 8px;
+      border: solid $color-text;
+      border-width: 0 1px 1px 0;
+      display: inline-block;
+      transform: rotate(45deg);
+      transition: transform $transition;
+    }
+    
+    &.active .arrow-down {
+      transform: rotate(-135deg);
+    }
+  }
+  
+  .lang-dropdown {
+    position: absolute;
+    top: calc(100% + 5px); // Biraz daha aşağıda olacak şekilde ayarlama
+    right: 0;
+    background-color: $color-white;
+    border-radius: $border-radius;
+    box-shadow: $shadow-lg; // Daha belirgin bir gölge
+    min-width: 120px;
+    overflow: hidden;
+    z-index: 101;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all $transition;
+    border: 1px solid rgba($color-grey, 0.3); // Hafif bir kenarlık ekle
+    
+    &.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    
+    .lang-option {
+      display: flex;
+      align-items: center;
+      padding: $spacing-sm $spacing-md;
+      cursor: pointer;
+      transition: background-color $transition;
+      
+      &:hover {
+        background-color: rgba($color-primary, 0.05);
+      }
+      
+      &.active {
+        background-color: rgba($color-primary, 0.1);
+        font-weight: $font-weight-medium;
+        color: $color-primary;
+      }
+      
+      .flag {
+        width: 20px;
+        height: 15px;
+        margin-right: $spacing-sm;
+      }
+      
+      .lang-name {
+        font-size: $font-size-small;
+      }
+    }
+  }
+}
+
 .nav-menu {
+  display: flex;
+  align-items: center;
+  
   @media (max-width: $breakpoint-md) {
     position: absolute;
     top: 70px;
@@ -37,9 +145,16 @@
     box-shadow: $shadow;
     padding: $spacing-md;
     display: none;
+    flex-direction: column;
+    align-items: flex-start;
     
     &.active {
-      display: block;
+      display: flex;
+    }
+    
+    .language-selector {
+      margin-top: $spacing-md;
+      align-self: flex-start;
     }
   }
 }
