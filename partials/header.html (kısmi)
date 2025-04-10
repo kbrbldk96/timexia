@@ -1,5 +1,0 @@
-<ul class="nav-list">
-    <li class="nav-item"><a href="index.html" class="nav-link" data-active="index" data-key="navHome"></a></li>
-    <li class="nav-item"><a href="appointment.html" class="nav-link" data-active="appointment" data-key="navAppointment"></a></li>
-    <li class="nav-item"><a href="about.html" class="nav-link" data-active="about" data-key="navAbout"></a></li>
-</ul>

@@ -3,6 +3,13 @@ export const translations = {
   "navHome": "Home",
   "navAppointment": "Get Appointment",
   "navAbout": "About Us",
+  "navFeatures": "Features",
+  "navPricing": "Pricing", 
+  "navApi": "API",
+  "navHelp": "Help",
+  "navLogin": "Log in",
+  "navRegister": "Create Account",
+  "navContact": "Contact",
   
   // Hero section
   "heroTitle": "Easy and Fast Appointment System for Your Business",
@@ -25,5 +32,13 @@ export const translations = {
   // CTA section
   "ctaTitle": "Start Now",
   "ctaDescription": "Start your digital transformation today and grow your business.",
-  "ctaButton": "Use Appointment System"
+  "ctaButton": "Use Appointment System",
+
+  //Footer
+  "footerTagline": "Making appointment technology accessible to everyone.",
+  "footerPages": "Pages",
+  "footerContact": "Contact",
+  "footerExplore": "Explore",
+  "footerCopyright": "© 2025 Timexia. All rights reserved.",
+  "footerKimly": "This project was developed by <a href=\"https://kimlytechnology.com\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"footer__credit-link\">Kimly Technology</a>.",
 };

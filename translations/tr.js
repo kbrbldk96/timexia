@@ -3,7 +3,15 @@ export const translations = {
   "navHome": "Ana Sayfa",
   "navAppointment": "Randevu Al",
   "navAbout": "Hakkımızda",
-  
+  "navContact": "İletişim",
+  "navFeatures": "Özellikler",
+  "navPricing": "Fiyatlandırma",
+  "navApi": "API",
+  "navHelp": "Yardım",
+  "navLogin": "Giriş Yap",
+  "navRegister": "Hesap Oluştur",
+  // Hero bölümü
+
   // Ana bölüm
   "heroTitle": "İşletmeniz İçin Kolay ve Hızlı Randevu Sistemi",
   "heroDescription": "Timexia ile müşterileriniz 7/24 online randevu alabilir, siz de zaman kazanarak işinize odaklanabilirsiniz.",
@@ -68,5 +76,7 @@ export const translations = {
   "footerTagline": "Randevu teknolojisini herkes için erişilebilir kılıyoruz.",
   "footerPages": "Sayfalar",
   "footerContact": "İletişim",
-  "footerCopyright": "© 2023 Timexia. Tüm hakları saklıdır."
+  "footerExplore": "Keşfet",
+  "footerCopyright": "© 2025 Timexia. Tüm hakları saklıdır.",
+  "footerKimly": "Bu proje <a href=\"https://kimlytechnology.com\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"footer__credit-link\">Kimly Technology</a> tarafından geliştirilmiştir."
 };

@@ -62,6 +62,11 @@
   flex-wrap: wrap;
 }
 
+// State classes
+body.menu-open {
+  overflow: hidden;
+}
+
 // Responsive utilities
 @media (max-width: $breakpoint-md) {
   .d-md-none {

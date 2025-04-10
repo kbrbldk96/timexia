@@ -43,6 +43,45 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
   
+  // Modern navigation toggle
+  const mobileToggle = document.getElementById('mobile-toggle');
+  const mainNav = document.getElementById('main-nav');
+  
+  if (mobileToggle && mainNav) {
+    mobileToggle.addEventListener('click', () => {
+      mobileToggle.classList.toggle('active');
+      mainNav.classList.toggle('active');
+      document.body.classList.toggle('menu-open'); // Body scroll'u engellemek için
+    });
+  }
+  
+  // Active link class
+  const setActiveLink = () => {
+    const currentPath = window.location.pathname;
+    const currentHash = window.location.hash;
+    
+    document.querySelectorAll('.header__menu-link').forEach(link => {
+      const href = link.getAttribute('href');
+      
+      // Hash için kontrol (örn. #features)
+      if (href.startsWith('#') && href === currentHash) {
+        link.classList.add('active');
+      } 
+      // Sayfa için kontrol
+      else if (!href.startsWith('#') && currentPath.includes(href)) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+  };
+  
+  // Set active link on page load
+  setActiveLink();
+  
+  // Set active link when hash changes
+  window.addEventListener('hashchange', setActiveLink);
+  
   // Form validation
   const forms = document.querySelectorAll('form[data-netlify="true"]');
   

@@ -1,38 +1,61 @@
 <footer class="footer">
     <div class="container">
-        <div class="footer-top">
-            <div class="footer-brand">
-                <a href="#" class="footer-logo">Timexia</a>
-                <p class="footer-tagline" data-key="footerTagline"></p>
+        <!-- Ana footer içeriği -->
+        <div class="footer__content">
+            <!-- Sol bölüm - Marka -->
+            <div class="footer__brand">
+                <a href="index.html" class="footer__logo">Timexia</a>
+                <p class="footer__tagline" data-key="footerTagline">Randevu teknolojisini herkes için erişilebilir kılıyoruz.</p>
             </div>
             
-            <div class="footer-links">
-                <div class="footer-links-group">
-                    <h4 class="footer-links-title" data-key="footerPages"></h4>
-                    <ul>
-                        <li><a href="index.html" data-key="navHome"></a></li>
-                        <li><a href="appointment.html" data-key="navAppointment"></a></li>
-                        <li><a href="about.html" data-key="navAbout"></a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-links-group">
-                    <h4 class="footer-links-title" data-key="footerContact"></h4>
-                    <ul>
-                        <li><a href="mailto:info@timexia.io">info@timexia.io</a></li>
-                        <li><a href="tel:+901234567890">+90 123 456 78 90</a></li>
-                    </ul>
+            <!-- Orta bölüm - Keşfet -->
+            <div class="footer__nav">
+                <h4 class="footer__heading" data-key="footerExplore">Keşfet</h4>
+                <ul class="footer__nav-list">
+                    <li class="footer__nav-item">
+                        <a href="about.html" class="footer__nav-link" data-key="navAbout">Hakkımızda</a>
+                    </li>
+                    <li class="footer__nav-item">
+                        <a href="contact.html" class="footer__nav-link" data-key="navContact">İletişim</a>
+                    </li>
+                    <li class="footer__nav-item">
+                        <a href="#help" class="footer__nav-link" data-key="navHelp">Yardım</a>
+                    </li>
+                    <li class="footer__nav-item">
+                        <a href="#api" class="footer__nav-link" data-key="navApi">API</a>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Sağ bölüm - Sosyal ve İletişim -->
+            <div class="footer__connect">
+                <h4 class="footer__heading" data-key="footerContact">İletişim</h4>
+                <a href="mailto:hello@timexia.io" class="footer__email">hello@timexia.io</a>
+                <div class="footer__social">
+                    <a href="#" class="footer__social-link" aria-label="Instagram">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+                    <a href="#" class="footer__social-link" aria-label="LinkedIn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                            <rect x="2" y="9" width="4" height="12"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
+                        </svg>
+                    </a>
                 </div>
             </div>
         </div>
         
-        <div class="footer-bottom">
-            <p class="copyright" data-key="footerCopyright"></p>
-            <div class="social-links">
-                <a href="#" class="social-link">Twitter</a>
-                <a href="#" class="social-link">Instagram</a>
-                <a href="#" class="social-link">LinkedIn</a>
-            </div>
+        <!-- En alt satır - Telif + Proje bilgisi -->
+        <div class="footer__bottom" id="footer-bottom">
+            <p class="footer__copyright" data-key="footerCopyright">&copy; 2023 Timexia. Tüm hakları saklıdır.</p>
+            <p class="footer__credit" data-key="footerKimly">
+                Bu proje <a href="https://kimlytechnology.com" target="_blank" rel="noopener noreferrer" class="footer__credit-link">Kimly Technology</a> tarafından geliştirilmiştir.
+            </p>
         </div>
     </div>
 </footer>

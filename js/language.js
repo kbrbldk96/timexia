@@ -6,16 +6,96 @@
 document.addEventListener('DOMContentLoaded', function() {
   console.log('Dil sistemi başlatılıyor');
   
+  // Mevcut dil seçimini localStorage'dan al veya varsayılan olarak 'tr' kullan
+  let currentLang = localStorage.getItem('language') || 'tr';
+  
   // DOM tamamen yüklendiğinden emin olmak için kısa bir gecikmeyle başlat
   setTimeout(initLanguageSystem, 500);
+  
+  /**
+   * UI'ı çevirilerle güncelle - Global olarak tanımlandı
+   */
+  function updateUI(translations) {
+    // data-key niteliğine sahip tüm elementleri bul
+    const elements = document.querySelectorAll('[data-key]');
+    console.log(`Çevrilecek element sayısı: ${elements.length}`);
+    
+    // Her elementin içeriğini ilgili çeviriyle güncelle
+    elements.forEach(el => {
+      const key = el.getAttribute('data-key');
+      
+      // Çeviri bulunamazsa anahtar adını kullan
+      if (translations[key]) {
+        // HTML içeren çeviriler için innerHTML kullan
+        if (translations[key].includes('<') && translations[key].includes('>')) {
+          el.innerHTML = translations[key];
+        } else {
+          el.textContent = translations[key];
+        }
+      } else {
+        console.warn(`Çeviri bulunamadı: ${key}`);
+        el.textContent = key; // Anahtar adına dön
+      }
+      
+      // Yer tutucu (placeholder) özelliği varsa güncelle
+      if (el.hasAttribute('placeholder') && translations[key + 'Placeholder']) {
+        el.setAttribute('placeholder', translations[key + 'Placeholder']);
+      }
+    });
+  }
+  
+  /**
+   * Dil UI elementlerini güncelle - Global olarak tanımlandı
+   */
+  function updateLanguageUI() {
+    // Seçicideki dil kodunu güncelle
+    const currentLangCodeEl = document.getElementById('current-lang-code');
+    if (currentLangCodeEl) {
+      currentLangCodeEl.textContent = currentLang.toUpperCase();
+    }
+    
+    // Dropdown seçeneklerindeki aktif sınıfını güncelle
+    document.querySelectorAll('.lang-option').forEach(option => {
+      const optionLang = option.getAttribute('data-lang');
+      if (optionLang === currentLang) {
+        option.classList.add('active');
+      } else {
+        option.classList.remove('active');
+      }
+    });
+    
+    // HTML lang niteliğini güncelle
+    document.documentElement.lang = currentLang;
+  }
+  
+  /**
+   * Aktif dili ayarla, çevirileri yükle ve UI'ı güncelle - Global olarak tanımlandı
+   */
+  async function setLanguage(lang) {
+    currentLang = lang;
+    localStorage.setItem('language', lang);
+    
+    // Çeviri dosyasını dinamik olarak yükle
+    try {
+      // Çeviri dosyasını dinamik import ile yükle
+      const translationModule = await import(`../translations/${lang}.js`);
+      const translations = translationModule.translations;
+      console.log(`Dil yüklendi: ${lang}`);
+      
+      // UI'ı yeni çevirilerle güncelle
+      updateUI(translations);
+      
+      // Dil UI elementlerini güncelle
+      updateLanguageUI();
+    } catch (error) {
+      console.error(`"${lang}" dil dosyası yüklenemedi:`, error);
+    }
+  }
   
   /**
    * Dil sistemini başlat
    */
   async function initLanguageSystem() {
-    // Mevcut dil seçimini localStorage'dan al veya varsayılan olarak 'tr' kullan
-    let currentLang = localStorage.getItem('language') || 'tr';
-    
     // DOM elementlerine referanslar
     const currentLangEl = document.getElementById('current-lang');
     const currentLangCodeEl = document.getElementById('current-lang-code');
@@ -72,80 +152,6 @@ document.addEventListener('DOMContentLoaded', function() {
       // Başlangıçta seçili dili yükle
       await setLanguage(currentLang);
     }
-    
-    /**
-     * Aktif dili ayarla, çevirileri yükle ve UI'ı güncelle
-     */
-    async function setLanguage(lang) {
-      currentLang = lang;
-      localStorage.setItem('language', lang);
-      
-      // Çeviri dosyasını dinamik olarak yükle
-      try {
-        // Çeviri dosyasını dinamik import ile yükle
-        const translationModule = await import(`../translations/${lang}.js`);
-        const translations = translationModule.translations;
-        console.log(`Dil yüklendi: ${lang}`);
-        
-        // UI'ı yeni çevirilerle güncelle
-        updateUI(translations);
-        
-        // Dil UI elementlerini güncelle
-        updateLanguageUI();
-      } catch (error) {
-        console.error(`"${lang}" dil dosyası yüklenemedi:`, error);
-      }
-    }
-    
-    /**
-     * UI'ı çevirilerle güncelle
-     */
-    function updateUI(translations) {
-      // data-key niteliğine sahip tüm elementleri bul
-      const elements = document.querySelectorAll('[data-key]');
-      console.log(`Çevrilecek element sayısı: ${elements.length}`);
-      
-      // Her elementin içeriğini ilgili çeviriyle güncelle
-      elements.forEach(el => {
-        const key = el.getAttribute('data-key');
-        
-        // Çeviri bulunamazsa anahtar adını kullan
-        if (translations[key]) {
-          el.textContent = translations[key];
-        } else {
-          console.warn(`Çeviri bulunamadı: ${key}`);
-          el.textContent = key; // Anahtar adına dön
-        }
-        
-        // Yer tutucu (placeholder) özelliği varsa güncelle
-        if (el.hasAttribute('placeholder') && translations[key + 'Placeholder']) {
-          el.setAttribute('placeholder', translations[key + 'Placeholder']);
-        }
-      });
-    }
-    
-    /**
-     * Dil UI elementlerini güncelle
-     */
-    function updateLanguageUI() {
-      // Seçicideki dil kodunu güncelle
-      if (currentLangCodeEl) {
-        currentLangCodeEl.textContent = currentLang.toUpperCase();
-      }
-      
-      // Dropdown seçeneklerindeki aktif sınıfını güncelle
-      document.querySelectorAll('.lang-option').forEach(option => {
-        const optionLang = option.getAttribute('data-lang');
-        if (optionLang === currentLang) {
-          option.classList.add('active');
-        } else {
-          option.classList.remove('active');
-        }
-      });
-      
-      // HTML lang niteliğini güncelle
-      document.documentElement.lang = currentLang;
-    }
   }
 
   // HTML parçaları yüklendiğinde tekrardan çeviri yapmak için olay dinleyici ekle
@@ -153,7 +159,6 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log(`Parça yüklendi: ${e.detail}, çeviriler tekrar uygulanıyor`);
     
     // Mevcut dili al ve çevirileri uygula
-    const currentLang = localStorage.getItem('language') || 'tr';
     try {
       const translationModule = await import(`../translations/${currentLang}.js`);
       const translations = translationModule.translations;

@@ -1,35 +1,56 @@
 <header class="header">
     <div class="container">
-        <nav class="navbar">
-            <a href="index.html" class="logo">
-                <span>Timexia</span>
-            </a>
-            <div class="nav-menu">
-                <ul class="nav-list">
-                    <li class="nav-item"><a href="index.html" class="nav-link" data-active="index" data-key="navHome"></a></li>
-                    <li class="nav-item"><a href="appointment.html" class="nav-link" data-active="appointment" data-key="navAppointment"></a></li>
-                    <li class="nav-item"><a href="about.html" class="nav-link" data-active="about" data-key="navAbout"></a></li>
+        <div class="header__wrapper">
+            <!-- Logo -->
+            <a href="index.html" class="header__logo">Timexia</a>
+            
+            <!-- Hamburger menü (mobil için) -->
+            <button class="header__mobile-toggle" id="mobile-toggle" aria-label="Menu">
+                <span class="header__mobile-toggle-bar"></span>
+            </button>
+            
+            <!-- Ana navigasyon -->
+            <nav class="header__nav" id="main-nav">
+                <!-- Ana menü -->
+                <ul class="header__menu">
+                    <li class="header__menu-item">
+                        <a href="#features" class="header__menu-link" data-active="features" data-key="navFeatures">Özellikler</a>
+                    </li>
+                    <li class="header__menu-item">
+                        <a href="#pricing" class="header__menu-link" data-active="pricing" data-key="navPricing">Fiyatlandırma</a>
+                    </li>
+                    <li class="header__menu-item">
+                        <a href="#api" class="header__menu-link" data-active="api" data-key="navApi">API</a>
+                    </li>
+                    <li class="header__menu-item">
+                        <a href="#help" class="header__menu-link" data-active="help" data-key="navHelp">Yardım</a>
+                    </li>
                 </ul>
                 
-                <!-- Dil seçim bileşeni -->
-                <div class="language-selector">
-                    <div class="current-lang" id="current-lang">
-                        <span class="lang-code" id="current-lang-code">TR</span>
-                        <span class="arrow-down"></span>
-                    </div>
-                    <div class="lang-dropdown" id="lang-dropdown">
-                        <div class="lang-option active" data-lang="tr">
-                            <span class="lang-name">Türkçe</span>
+                <!-- Sağ menü (auth) -->
+                <div class="header__auth">
+                    <a href="/login" class="header__auth-link" data-key="navLogin">Giriş yap</a>
+                    <a href="/register" class="header__auth-button" data-key="navRegister">Hesap Oluştur</a>
+                </div>
+                
+                <!-- Dil seçici -->
+                <div class="header__lang">
+                    <div class="language-selector">
+                        <div class="current-lang" id="current-lang">
+                            <span class="lang-code" id="current-lang-code">TR</span>
+                            <span class="arrow-down"></span>
                         </div>
-                        <div class="lang-option" data-lang="en">
-                            <span class="lang-name">English</span>
+                        <div class="lang-dropdown" id="lang-dropdown">
+                            <div class="lang-option active" data-lang="tr">
+                                <span class="lang-name">Türkçe</span>
+                            </div>
+                            <div class="lang-option" data-lang="en">
+                                <span class="lang-name">English</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <button class="btn-mobile-nav">
-                <span class="icon-menu"></span>
-            </button>
-        </nav>
+            </nav>
+        </div>
     </div>
 </header>
