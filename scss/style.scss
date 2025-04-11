@@ -16,7 +16,8 @@
 @import 'components/buttons';
 @import 'components/forms';
 @import 'components/cards';
-@import 'components/loader'; // Loader bileşenini ekledik
+@import 'components/loader';
+@import 'components/animations'; // Yeni animasyon dosyasını ekledik
 
 // Page specific styles
 @import 'pages/home';

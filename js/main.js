@@ -12,6 +12,11 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('load', () => {
       setTimeout(() => {
         loader.classList.add('hidden');
+        
+        // Sayfa tamamen yüklendiğinde görünür olan öğeleri aktifleştir
+        setTimeout(() => {
+          initScrollAnimations();
+        }, 400);
       }, 500); // 500ms delay for smooth transition
     });
     
@@ -117,5 +122,49 @@ document.addEventListener('DOMContentLoaded', () => {
   if (dateInput) {
     const today = new Date().toISOString().split('T')[0];
     dateInput.setAttribute('min', today);
+  }
+  
+  /**
+   * Kaydırma (Scroll) animasyonları için IntersectionObserver oluşturur
+   */
+  function initScrollAnimations() {
+    // Animasyon yapılacak tüm öğeleri seç
+    const animatedElements = document.querySelectorAll('.fade-in-up');
+    
+    if (animatedElements.length === 0) return;
+    
+    console.log('Scroll animasyonları başlatılıyor...');
+    
+    // IntersectionObserver oluştur
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        // Eğer öğe görünür alandaysa
+        if (entry.isIntersecting) {
+          // Öğe görünür olduğunda .visible sınıfını ekle
+          entry.target.classList.add('visible');
+        } else {
+          // Öğe görünmez olduğunda .visible sınıfını kaldır
+          // böylece tekrar görünür olduğunda animasyon tekrarlanır
+          entry.target.classList.remove('visible');
+        }
+      });
+    }, {
+      root: null,          // Viewport'a göre izle
+      rootMargin: '0px',   // Margin yok
+      threshold: 0.1       // Öğenin %10'u görünür olduğunda tetikle
+    });
+    
+    // Tüm animasyon öğelerini izle
+    animatedElements.forEach(element => {
+      observer.observe(element);
+    });
+  }
+  
+  // Sayfa içeriği yüklenir yüklenmez scroll animasyonlarını başlat
+  if (document.readyState === 'complete') {
+    initScrollAnimations();
+  } else {
+    // Eğer hala yükleniyor ise, yükleme tamamlandığında başlat
+    document.addEventListener('DOMContentLoaded', initScrollAnimations);
   }
 });

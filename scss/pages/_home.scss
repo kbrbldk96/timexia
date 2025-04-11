@@ -3,9 +3,10 @@
 // Hero section
 .hero {
   padding: 140px 0 $spacing-3xl;
+  background-color: $color-white; // Hero bölümünün arka plan rengi açıkça belirtildi
   
   @media (max-width: $breakpoint-md) {
-    padding: 120px 0 $spacing-2xl;
+    padding: 120px 0 $spacing-xl; // Mobilde padding azaltıldı
   }
   
   .container {
@@ -91,9 +92,56 @@
   }
 }
 
+// Section separator - dalga efekti
+.section-separator {
+  display: block;
+  width: 100%;
+  height: 100px; // Dalganın yüksekliği
+  line-height: 0;
+  position: relative;
+  margin-top: -50px; // Hero section'a bindirme
+  
+  &__wave {
+    width: 100%;
+    height: 100%;
+    display: block;
+    
+    path {
+      // SVG path için ek stiller (isteğe bağlı)
+      transition: all 0.3s ease;
+    }
+  }
+  
+  @media (max-width: $breakpoint-md) {
+    height: 70px; // Mobilde daha düşük yükseklik
+    margin-top: -35px; // Mobilde bindirmeyi azalt
+  }
+  
+  @media (max-width: $breakpoint-sm) {
+    height: 50px; // Daha küçük ekranlarda daha da düşük yükseklik
+    margin-top: -25px;
+  }
+}
+
 // Features section
 .features {
-  background-color: $color-background;
+  background-color: $color-background; // #f7f8fa - SVG dalga ile aynı renk
+  padding-top: 0; // Üst padding'i kaldır, çünkü dalga efekti var
+  
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); // Desktop: 3 sütun
+    gap: $spacing-xl;
+    margin-top: $spacing-2xl;
+    
+    @media (max-width: $breakpoint-lg) {
+      grid-template-columns: repeat(2, 1fr); // Tablet: 2 sütun
+    }
+    
+    @media (max-width: $breakpoint-sm) {
+      grid-template-columns: 1fr; // Mobil: 1 sütun
+    }
+  }
 }
 
 // CTA section

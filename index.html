@@ -39,28 +39,36 @@
         <section class="hero">
             <div class="container">
                 <div class="hero-content">
-                    <h1 class="hero-title" data-key="heroTitle"></h1>
-                    <p class="hero-description" data-key="heroDescription"></p>
-                    <div class="hero-buttons">
+                    <h1 class="hero-title fade-in-up" data-key="heroTitle"></h1>
+                    <p class="hero-description fade-in-up" data-delay="100" data-key="heroDescription"></p>
+                    <div class="hero-buttons fade-in-up" data-delay="200">
                         <a href="appointment.html" class="btn btn-primary" data-key="heroButton1"></a>
                         <a href="#features" class="btn btn-outline" data-key="heroButton2"></a>
                     </div>
                 </div>
-                <div class="hero-image">
-                    <img src="images/hero-image.svg" alt="Timexia Randevu Sistemi">
+                <div class="hero-image fade-in-up" data-delay="300">
+                    <img src="images/assets/1.png" alt="Timexia Randevu Sistemi">
                 </div>
             </div>
         </section>
 
+        <!-- Dalga şeklinde geçiş efekti -->
+        <div class="section-separator">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100" preserveAspectRatio="none" class="section-separator__wave">
+                <path fill="#f7f8fa" fill-opacity="1" d="M0,32L48,37.3C96,43,192,53,288,58.7C384,64,480,64,576,53.3C672,43,768,21,864,16C960,11,1056,21,1152,32C1248,43,1344,53,1392,58.7L1440,64L1440,100L1392,100C1344,100,1248,100,1152,100C1056,100,960,100,864,100C768,100,672,100,576,100C480,100,384,100,288,100C192,100,96,100,48,100L0,100Z"></path>
+            </svg>
+        </div>
+
         <section id="features" class="features">
             <div class="container">
-                <div class="section-header">
+                <div class="section-header fade-in-up" data-delay="100">
                     <h2 class="section-title" data-key="featuresTitle"></h2>
                     <p class="section-description" data-key="featuresDescription"></p>
                 </div>
                 
                 <div class="features-grid">
-                    <div class="feature-card">
+                    <!-- Mevcut Özellikler -->
+                    <div class="feature-card fade-in-up" data-delay="100">
                         <div class="feature-icon">
                             <img src="images/icons/calendar.svg" alt="Randevu İkonu">
                         </div>
@@ -68,7 +76,7 @@
                         <p class="feature-description" data-key="feature1Description"></p>
                     </div>
                     
-                    <div class="feature-card">
+                    <div class="feature-card fade-in-up" data-delay="100">
                         <div class="feature-icon">
                             <img src="images/icons/service.svg" alt="Hizmet İkonu">
                         </div>
@@ -76,12 +84,37 @@
                         <p class="feature-description" data-key="feature2Description"></p>
                     </div>
                     
-                    <div class="feature-card">
+                    <div class="feature-card fade-in-up" data-delay="100">
                         <div class="feature-icon">
                             <img src="images/icons/notification.svg" alt="Bildirim İkonu">
                         </div>
                         <h3 class="feature-title" data-key="feature3Title"></h3>
                         <p class="feature-description" data-key="feature3Description"></p>
+                    </div>
+                    
+                    <!-- Yeni Özellikler -->
+                    <div class="feature-card fade-in-up" data-delay="100">
+                        <div class="feature-icon">
+                            <img src="images/icons/website.svg" alt="Web Site İkonu">
+                        </div>
+                        <h3 class="feature-title" data-key="feature4Title"></h3>
+                        <p class="feature-description" data-key="feature4Description"></p>
+                    </div>
+                    
+                    <div class="feature-card fade-in-up" data-delay="100">
+                        <div class="feature-icon">
+                            <img src="images/icons/location.svg" alt="Lokasyon İkonu">
+                        </div>
+                        <h3 class="feature-title" data-key="feature5Title"></h3>
+                        <p class="feature-description" data-key="feature5Description"></p>
+                    </div>
+                    
+                    <div class="feature-card fade-in-up" data-delay="100">
+                        <div class="feature-icon">
+                            <img src="images/icons/customize.svg" alt="Özelleştirme İkonu">
+                        </div>
+                        <h3 class="feature-title" data-key="feature6Title"></h3>
+                        <p class="feature-description" data-key="feature6Description"></p>
                     </div>
                 </div>
             </div>
@@ -90,9 +123,9 @@
         <section class="cta">
             <div class="container">
                 <div class="cta-content">
-                    <h2 class="cta-title" data-key="ctaTitle"></h2>
-                    <p class="cta-description" data-key="ctaDescription"></p>
-                    <a href="appointment.html" class="btn btn-primary" data-key="ctaButton"></a>
+                    <h2 class="cta-title fade-in-up" data-key="ctaTitle"></h2>
+                    <p class="cta-description fade-in-up" data-delay="100" data-key="ctaDescription"></p>
+                    <a href="appointment.html" class="btn btn-primary fade-in-up" data-delay="200" data-key="ctaButton"></a>
                 </div>
             </div>
         </section>

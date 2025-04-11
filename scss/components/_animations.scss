@@ -1,0 +1,44 @@
+// Animation Styles - Kaydırma (Scroll) Animasyonları
+
+// Fade-in-up animasyonu
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease; // Süreyi 0.8s'den 0.6s'ye düşürdük
+  transition-delay: var(--delay, 0ms);
+  
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Staggered (sıralı) animasyonlar için sınıflar
+[data-delay="100"] { --delay: 100ms; }
+[data-delay="200"] { --delay: 200ms; }
+[data-delay="300"] { --delay: 300ms; }
+[data-delay="400"] { --delay: 400ms; }
+[data-delay="500"] { --delay: 500ms; }
+
+// Tüm feature kartları için kademeli gecikme atama
+.features-grid {
+  .feature-card {
+    &:nth-child(1) { --delay: 0ms; }
+    &:nth-child(2) { --delay: 100ms; }
+    &:nth-child(3) { --delay: 200ms; }
+    &:nth-child(4) { --delay: 300ms; }
+    &:nth-child(5) { --delay: 400ms; }
+    &:nth-child(6) { --delay: 500ms; }
+  }
+}
+
+// Mobilde daha az gecikme
+@media (max-width: $breakpoint-md) {
+  [data-delay] { --delay: 0ms; } // Mobilde tüm gecikmeleri sıfırla
+  
+  .features-grid {
+    .feature-card {
+      &:nth-child(n) { --delay: 100ms; } // Mobilde daha az gecikme
+    }
+  }
+}

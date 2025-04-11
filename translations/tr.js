@@ -30,6 +30,20 @@ export const translations = {
   "feature3Title": "Otomatik Bildirimler",
   "feature3Description": "Müşterilerinize otomatik onay ve hatırlatma bildirimleri gönderin.",
   
+  // Özellik 4-6
+  "feature4Title": "Kendi Web Sitenizi Anında Oluşturun",
+  "feature4Description": "kuaforxyz.timexia.io adresiyle markanıza özel online vitrin oluşturun.",
+  "feature5Title": "Süreçleri İhtiyacınıza Göre Tanımlayın",
+  "feature5Description": "Mağaza → Oda → Çalışan gibi adımları işletmenize göre ayarlayın.",
+  "feature6Title": "Her Cihazda Mükemmel Görünüm",
+  "feature6Description": "Telefon, tablet, bilgisayar… Her yerde hızlı ve sorunsuz deneyim.",
+  "feature7Title": "Hatırlatmaları Biz Gönderelim",
+  "feature7Description": "Randevu onayı ve hatırlatmalar otomatik olarak müşterilerinize iletilir.",
+  "feature8Title": "Tüm Şubeler Tek Panelde",
+  "feature8Description": "Birden fazla mağaza, oda ve çalışanı tek yerden kolayca yönetin.",
+  "feature9Title": "Her Varlığa Özel Bilgi Alanları",
+  "feature9Description": "Örn: Çalışanlar için \"Uzmanlık Alanı\", odalar için \"Ekipmanlar\" gibi detayları tanımlayın.",
+  
   // CTA bölümü
   "ctaTitle": "Hemen Başlayın",
   "ctaDescription": "Dijital dönüşümünüzü bugün başlatın ve işinizi büyütün.",

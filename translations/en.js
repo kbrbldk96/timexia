@@ -29,6 +29,20 @@ export const translations = {
   "feature3Title": "Automatic Notifications",
   "feature3Description": "Send automatic confirmation and reminder notifications to your customers.",
   
+  // Features 4-6
+  "feature4Title": "Create Your Own Website Instantly",
+  "feature4Description": "Create a custom online storefront for your brand with yoursalon.timexia.io.",
+  "feature5Title": "Define Processes According to Your Needs",
+  "feature5Description": "Customize steps like Store → Room → Employee according to your business.",
+  "feature6Title": "Perfect View on Every Device",
+  "feature6Description": "Phone, tablet, computer... Fast and smooth experience everywhere.",
+  "feature7Title": "We Send the Reminders",
+  "feature7Description": "Appointment confirmations and reminders are automatically sent to your customers.",
+  "feature8Title": "All Branches in One Panel",
+  "feature8Description": "Easily manage multiple stores, rooms and employees from one place.",
+  "feature9Title": "Custom Fields for Each Entity",
+  "feature9Description": "Define details like \"Area of Expertise\" for employees, \"Equipment\" for rooms, etc.",
+  
   // CTA section
   "ctaTitle": "Start Now",
   "ctaDescription": "Start your digital transformation today and grow your business.",
