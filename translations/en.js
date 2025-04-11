@@ -22,26 +22,25 @@ export const translations = {
   "featuresDescription": "Features designed for your personal and business needs",
   
   // Features 1-3
-  "feature1Title": "Personalized Subdomain",
-  "feature1Description": "Provide your customers with a professional experience using a customized domain like yoursalon.timexia.io.",
-  "feature2Title": "Service Management",
-  "feature2Description": "Easily list and organize your services, set prices and durations.",
-  "feature3Title": "Automatic Notifications",
-  "feature3Description": "Send automatic confirmation and reminder notifications to your customers.",
+   
+    "feature1Title": "Your Own Web Page",
+    "feature1Description": "Create a professional online presence with a custom subdomain.",
   
-  // Features 4-6
-  "feature4Title": "Create Your Own Website Instantly",
-  "feature4Description": "Create a custom online storefront for your brand with yoursalon.timexia.io.",
-  "feature5Title": "Define Processes According to Your Needs",
-  "feature5Description": "Customize steps like Store → Room → Employee according to your business.",
-  "feature6Title": "Perfect View on Every Device",
-  "feature6Description": "Phone, tablet, computer... Fast and smooth experience everywhere.",
-  "feature7Title": "We Send the Reminders",
-  "feature7Description": "Appointment confirmations and reminders are automatically sent to your customers.",
-  "feature8Title": "All Branches in One Panel",
-  "feature8Description": "Easily manage multiple stores, rooms and employees from one place.",
-  "feature9Title": "Custom Fields for Each Entity",
-  "feature9Description": "Define details like \"Area of Expertise\" for employees, \"Equipment\" for rooms, etc.",
+    "feature2Title": "Flexible Workflow Setup",
+    "feature2Description": "Customize appointment steps to fit your business needs.",
+  
+    "feature3Title": "Fully Responsive",
+    "feature3Description": "Deliver a seamless user experience on mobile, tablet, and desktop.",
+  
+    // Features 4–6
+    "feature4Title": "Automated Reminders",
+    "feature4Description": "Send appointment confirmations and reminders automatically.",
+  
+    "feature5Title": "Centralized Management",
+    "feature5Description": "Manage all locations and teams from a single dashboard.",
+  
+    "feature6Title": "Custom Data Fields",
+    "feature6Description": "Define tailored data fields for each category to suit your workflow.",
   
   // CTA section
   "ctaTitle": "Start Now",
