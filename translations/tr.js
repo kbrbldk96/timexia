@@ -17,42 +17,41 @@ export const translations = {
   "heroDescription": "Timexia ile müşterileriniz 7/24 online randevu alabilir, siz de zaman kazanarak işinize odaklanabilirsiniz.",
   "heroButton1": "Hemen Randevu Al",
   "heroButton2": "Daha Fazla Bilgi",
-  
+
   // Özellikler bölümü
   "featuresTitle": "Timexia ile Neler Yapabilirsiniz?",
   "featuresDescription": "Bireysel ve kurumsal ihtiyaçlarınız için tasarlanmış özellikler",
-  
-  // Özellik 1-3
-  "feature1Title": "Kişiselleştirilmiş Alt Alan Adı",
-  "feature1Description": "kuaforxyz.timexia.io gibi size özel alan adı ile müşterilerinize profesyonel bir deneyim sunun.",
-  "feature2Title": "Hizmet Yönetimi",
-  "feature2Description": "Hizmetlerinizi kolayca listeleyin ve düzenleyin, fiyatları ve süreleri belirleyin.",
-  "feature3Title": "Otomatik Bildirimler",
-  "feature3Description": "Müşterilerinize otomatik onay ve hatırlatma bildirimleri gönderin.",
-  
-  // Özellik 4-6
-  "feature4Title": "Kendi Web Sitenizi Anında Oluşturun",
-  "feature4Description": "kuaforxyz.timexia.io adresiyle markanıza özel online vitrin oluşturun.",
-  "feature5Title": "Süreçleri İhtiyacınıza Göre Tanımlayın",
-  "feature5Description": "Mağaza → Oda → Çalışan gibi adımları işletmenize göre ayarlayın.",
-  "feature6Title": "Her Cihazda Mükemmel Görünüm",
-  "feature6Description": "Telefon, tablet, bilgisayar… Her yerde hızlı ve sorunsuz deneyim.",
-  "feature7Title": "Hatırlatmaları Biz Gönderelim",
-  "feature7Description": "Randevu onayı ve hatırlatmalar otomatik olarak müşterilerinize iletilir.",
-  "feature8Title": "Tüm Şubeler Tek Panelde",
-  "feature8Description": "Birden fazla mağaza, oda ve çalışanı tek yerden kolayca yönetin.",
-  "feature9Title": "Her Varlığa Özel Bilgi Alanları",
-  "feature9Description": "Örn: Çalışanlar için \"Uzmanlık Alanı\", odalar için \"Ekipmanlar\" gibi detayları tanımlayın.",
-  
+
+  // Features 1–3
+  "feature1Title": "Your Own Web Page",
+  "feature1Description": "Create a professional online presence with a custom subdomain.",
+
+  "feature2Title": "Flexible Workflow Setup",
+  "feature2Description": "Customize appointment steps to fit your business needs.",
+
+  "feature3Title": "Fully Responsive",
+  "feature3Description": "Deliver a seamless user experience on mobile, tablet, and desktop.",
+
+  // Features 4–6
+  "feature4Title": "Automated Reminders",
+  "feature4Description": "Send appointment confirmations and reminders automatically.",
+
+  "feature5Title": "Centralized Management",
+  "feature5Description": "Manage all locations and teams from a single dashboard.",
+
+  "feature6Title": "Custom Data Fields",
+  "feature6Description": "Define tailored data fields for each category to suit your workflow.",
+
+
   // CTA bölümü
   "ctaTitle": "Hemen Başlayın",
   "ctaDescription": "Dijital dönüşümünüzü bugün başlatın ve işinizi büyütün.",
   "ctaButton": "Randevu Sistemini Kullan",
-  
+
   // Randevu sayfası
   "appointmentPageTitle": "Randevu Al",
   "appointmentPageDesc": "Hizmetlerimiz için online randevu oluşturun",
-  
+
   // Randevu formu
   "formName": "Adınız Soyadınız",
   "formEmail": "E-posta Adresiniz",
@@ -63,7 +62,7 @@ export const translations = {
   "formTime": "Saat",
   "formNotes": "Notlar (Opsiyonel)",
   "formSubmit": "Randevuyu Onayla",
-  
+
   // Hakkımızda sayfası
   "aboutPageTitle": "Hakkımızda",
   "aboutPageDesc": "Timexia'nın hikayesi ve misyonu",
@@ -85,7 +84,7 @@ export const translations = {
   "contactFormSubject": "Konu",
   "contactFormMessage": "Mesajınız",
   "contactFormSubmit": "Mesajı Gönder",
-  
+
   // Footer
   "footerTagline": "Randevu teknolojisini herkes için erişilebilir kılıyoruz.",
   "footerPages": "Sayfalar",
