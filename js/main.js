@@ -167,4 +167,67 @@ document.addEventListener('DOMContentLoaded', () => {
     // Eğer hala yükleniyor ise, yükleme tamamlandığında başlat
     document.addEventListener('DOMContentLoaded', initScrollAnimations);
   }
+
+  // Carousel functionality
+  function initCarousel() {
+    const track = document.querySelector('.carousel-track');
+    const items = document.querySelectorAll('.carousel-item');
+    const prevBtn = document.querySelector('.carousel-prev');
+    const nextBtn = document.querySelector('.carousel-next');
+    const dots = document.querySelectorAll('.dot');
+    
+    if (!track || !items.length || !prevBtn || !nextBtn) return;
+    
+    let currentIndex = 0;
+    let itemsPerView = getItemsPerView();
+    let totalPages = Math.ceil(items.length / itemsPerView);
+    
+    // Update itemsPerView on window resize
+    window.addEventListener('resize', () => {
+      itemsPerView = getItemsPerView();
+      totalPages = Math.ceil(items.length / itemsPerView);
+      goToSlide(currentIndex);
+      updateDots();
+    });
+    
+    function getItemsPerView() {
+      if (window.innerWidth < 768) return 1; // Mobile
+      if (window.innerWidth < 1200) return 2; // Tablet
+      return 3; // Desktop
+    }
+    
+    function goToSlide(index) {
+      currentIndex = index;
+      
+      // Make sure currentIndex is within bounds
+      if (currentIndex < 0) currentIndex = 0;
+      if (currentIndex > totalPages - 1) currentIndex = totalPages - 1;
+      
+      const offset = currentIndex * (-100 / itemsPerView);
+      track.style.transform = `translateX(${offset}%)`;
+      
+      updateDots();
+    }
+    
+    function updateDots() {
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentIndex);
+      });
+    }
+    
+    // Navigation buttons
+    prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
+    nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
+    
+    // Dots navigation
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => goToSlide(i));
+    });
+    
+    // Initialize
+    goToSlide(0);
+  }
+  
+  // Initialize carousel when DOM is loaded
+  document.addEventListener('DOMContentLoaded', initCarousel);
 });
