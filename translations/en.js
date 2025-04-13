@@ -42,8 +42,20 @@ export const translations = {
   "feature9Description": "Define custom access permissions for different user roles.",
   
   // Sectors section
-  "sectorsTitle": "Which Industries Is It For?",
-  "sectorsDescription": "Timexia offers appointment solutions for businesses from various sectors",
+  "sectorsTitle": "Which Sectors Is It Suitable For?",
+  "sectorsDescription": "Timexia offers comprehensive appointment solutions for businesses across various industries.",
+  "sectorsItemTitle1": "Beauty & Wellness",
+  "sectorsItemDescription1": "Ideal appointment planning for hair salons, beauty centers, and spas.",
+  "sectorsItemTitle2": "Healthcare Services",
+  "sectorsItemDescription2": "Easily manage patient appointments for doctors, dentists, and health clinics.",
+  "sectorsItemTitle3": "Consulting & Mentoring",
+  "sectorsItemDescription3": "Customized session planning for psychologists, life coaches, and consultants.",
+  "sectorsItemTitle4": "Education & Courses",
+  "sectorsItemDescription4": "Effortless student registration and scheduling for private lessons, courses, and workshops.",
+  "sectorsItemTitle5": "Sports & Fitness",
+  "sectorsItemDescription5": "Manage class schedules and bookings for gyms and fitness instructors.",
+  "sectorsItemTitle6": "More Industries",
+  "sectorsItemDescription6": "Timexia is suitable for any business that requires appointment management. <a href='#' class='sector-more-link'>Discover All <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'> <line x1='5' y1='12' x2='19' y2='12'></line><polyline points='12 5 19 12 12 19'></polyline></svg></a>",
   
   // Target users section
   "targetUsersTitle": "Who Is It For?",

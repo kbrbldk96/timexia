@@ -58,9 +58,22 @@ export const translations = {
   "targetUser6Title": "Eğitim & Kurs Merkezleri",
   "targetUser6Description": "Grup dersleri, birebir seanslar için rezervasyonlarınızı kolayca alın.",
   
+
   // Sektörler bölümü
-  "sectorsTitle": "Hangi Sektörler İçin Uygun?",
-  "sectorsDescription": "Timexia birçok farklı sektörden işletme için randevu çözümleri sunar",
+ "sectorsTitle": "Hangi Sektörler İçin Uygun?",
+  "sectorsDescription": "Timexia, birçok farklı sektördeki işletmeler için kapsamlı randevu çözümleri sunar.",
+  "sectorsItemTitle1": "Güzellik & Bakım",
+  "sectorsItemDescription1": "Kuaför, güzellik salonu ve spa merkezleri için ideal randevu planlaması.",
+  "sectorsItemTitle2": "Sağlık Hizmetleri",
+  "sectorsItemDescription2": "Doktor, diş hekimi ve sağlık klinikleri için hasta randevularını kolayca yönetin.",
+  "sectorsItemTitle3": "Danışmanlık & Mentörlük",
+  "sectorsItemDescription3": "Psikologlar, yaşam koçları ve danışmanlar için özel seans planlaması.",
+  "sectorsItemTitle4": "Eğitim & Kurslar",
+  "sectorsItemDescription4": "Birebir dersler, kurslar ve atölyeler için kolay öğrenci kaydı ve rezervasyon.",
+  "sectorsItemTitle5": "Spor & Fitness",
+  "sectorsItemDescription5": "Spor salonları ve eğitmenler için sınıf saatlerini ve rezervasyonları yönetin.",
+  "sectorsItemTitle6": "Daha Fazla Sektör",
+  "sectorsItemDescription6": "Timexia, randevu yönetimine ihtiyaç duyan tüm işletmeler için uygundur. Detaylı bilgi için tıklayın.</p> <a href='#' class='sector-more-link'> Tümünü Keşfet <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'> <line x1='5' y1='12' x2='19' y2='12'></line><polyline points='12 5 19 12 12 19'></polyline></svg></a>",
   
   // Uygunluk bölümü
   "suitabilityTitle": "Timexia Size Uygun mu?",

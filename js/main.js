@@ -230,4 +230,42 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Initialize carousel when DOM is loaded
   document.addEventListener('DOMContentLoaded', initCarousel);
+
+  /**
+   * Timeline görünürlük animasyonlarını başlatan fonksiyon
+   */
+  function initTimelineAnimations() {
+    const timelineItems = document.querySelectorAll('.timeline-item[data-scroll-reveal]');
+    
+    if (timelineItems.length === 0) return;
+    
+    console.log('Timeline animasyonları başlatılıyor...', timelineItems.length);
+    
+    const options = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.25 // Öğenin %25'i görünür olduğunda tetikle
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('reveal');
+          
+          // Öğe görünür hale geldikten sonra gözlemlemeyi durdur
+          observer.unobserve(entry.target);
+        }
+      });
+    }, options);
+    
+    // Her bir timeline öğesini izle
+    timelineItems.forEach((item, index) => {
+      // Öğelere gecikme ekleyerek sırayla görünmelerini sağla
+      item.style.transitionDelay = `${index * 150}ms`;
+      observer.observe(item);
+    });
+  }
+
+  // Timeline animasyonlarını başlat
+  initTimelineAnimations();
 });
