@@ -20,7 +20,7 @@ html {
 }
 
 body {
-  font-family: $font-primary;
+  font-family: $font-family-base; // $font-primary yerine $font-family-base kullan
   font-weight: $font-weight-normal;
   line-height: $line-height;
   color: $color-text;

@@ -1,6 +1,6 @@
 // Main Sass File - Imports all partials
 
-// Önce değişkenleri import et
+// Önce değişkenleri import et - sıralama önemli
 @import "variables";
 
 // Base styles
@@ -21,6 +21,7 @@
 @import 'components/cards';
 @import 'components/loader';
 @import 'components/animations'; // Yeni animasyon dosyasını ekledik
+@import 'components/slider-fix';  // Slider düzeltmeleri için
 
 // Page specific styles
 @import 'pages/home';

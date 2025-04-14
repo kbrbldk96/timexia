@@ -7,6 +7,7 @@ $color-text: #444444;
 $color-text-light: #666666;
 $color-heading: #333333;
 $color-background: #f7f8fa;
+$color-grey: #e0e0e0;
 
 // Boşluk (spacing) değişkenleri
 $spacing-sm: 8px;
@@ -26,6 +27,13 @@ $font-size-xl: 1.25rem;    // 20px
 $font-size-2xl: 1.5rem;    // 24px
 $font-size-3xl: 2rem;      // 32px
 $font-size-4xl: 2.5rem;    // 40px
+$font-size-base: 16px;
+$font-size-small: 0.75rem; // 12px
+
+// Font ailesi değişkenleri
+$font-primary: 'Inter', sans-serif;       // Eksik olan değişken
+$font-family-heading: 'Poppins', sans-serif;
+$font-family-base: 'Inter', sans-serif;
 
 // Font ağırlık değişkenleri
 $font-weight-normal: 400;
@@ -43,6 +51,7 @@ $breakpoint-xl: 1200px;
 $border-radius: 8px;
 $border-radius-lg: 12px;
 $border-radius-xl: 16px;
+$border-radius-sm: 4px;
 
 // Gölge değişkenleri
 $shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
@@ -51,3 +60,4 @@ $shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
 
 // Geçiş (transition) değişkenleri
 $transition: all 0.3s ease;
+$line-height: 1.6;

@@ -823,26 +823,94 @@
                     }
                 });
                 
-                // Sayfa scroll sorunlarını çözmek için yardımcı
-                window.addEventListener('resize', function() {
-                    swiper.update();
-                    
-                    // CSS ile taşma sorunları için
-                    const swiperWrapper = document.querySelector('.swiper-wrapper');
-                    if (swiperWrapper) {
-                        if (window.innerWidth < 768) {
-                            swiperWrapper.style.width = '100%';
-                        } else {
-                            swiperWrapper.style.width = '';
-                        }
+                // CSS ile taşma sorunları için
+                const swiperWrapper = document.querySelector('.swiper-wrapper');
+                if (swiperWrapper) {
+                    if (window.innerWidth < 768) {
+                        swiperWrapper.style.width = '100%';
+                    } else {
+                        swiperWrapper.style.width = '';
                     }
-                });
+                }
                 
                 // İlk yüklemede bir kere tetikle
                 window.dispatchEvent(new Event('resize'));
             }
+            
+            // Sayfa sonunda fazla boşluk olmasını engelle
+            function fixExtraScrollSpace() {
+                // Sayfanın gerçek yüksekliğini hesapla
+                const mainContent = document.querySelector('main');
+                const footer = document.querySelector('.footer');
+                
+                if (!mainContent || !footer) return;
+                
+                // Sayfa elemanlarının yükseklikleri
+                const headerHeight = document.querySelector('.header')?.offsetHeight || 0;
+                const mainHeight = mainContent.offsetHeight;
+                const footerHeight = footer.offsetHeight;
+                
+                // Toplam gerekli yükseklik
+                const totalRequiredHeight = headerHeight + mainHeight + footerHeight;
+                
+                // Viewport yüksekliği
+                const viewportHeight = window.innerHeight;
+                
+                // Eğer içerik viewport'tan küçükse, main içeriğin minimum yüksekliğini ayarla
+                if (totalRequiredHeight < viewportHeight) {
+                    const extraSpace = viewportHeight - totalRequiredHeight;
+                    mainContent.style.minHeight = (mainHeight + extraSpace) + 'px';
+                }
+                
+                // body'nin bottom margin/padding'ini sıfırla
+                document.body.style.marginBottom = '0';
+                document.body.style.paddingBottom = '0';
+            }
+            
+            // Sayfa yüklendikten ve boyutu değiştikten sonra düzeltmeyi uygula
+            window.addEventListener('load', fixExtraScrollSpace);
+            window.addEventListener('resize', fixExtraScrollSpace);
         });
     </script>
+    
+    <style>
+        /* Sayfa sonunda fazla scroll alanını engelle */
+        html, body {
+            overflow-x: hidden;
+            height: auto;
+            min-height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+        
+        main {
+            flex: 1 0 auto;
+        }
+        
+        .footer {
+            flex-shrink: 0;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+        
+        /* Swiper konteyner düzeltmesi */
+        .swiper-container {
+            height: auto !important;
+            margin-bottom: 0 !important;
+        }
+        
+        /* Son bölüm düzeltmesi */
+        .faq {
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+    </style>
 </body>
 </html>
 
