@@ -307,4 +307,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Fiyatlandırma toggle'ını başlat
   initPricingToggle();
+
+  /**
+   * SSS (FAQ) akordeon fonksiyonu
+   */
+  function initFaqAccordion() {
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    if (!faqItems.length) return;
+    
+    faqItems.forEach(item => {
+      const question = item.querySelector('.faq-question');
+      const answer = item.querySelector('.faq-answer');
+      
+      question.addEventListener('click', () => {
+        // Açık olan diğer SSS öğelerini kapat
+        const openItem = document.querySelector('.faq-item.active');
+        if (openItem && openItem !== item) {
+          openItem.classList.remove('active');
+          openItem.querySelector('.faq-answer').style.maxHeight = '0px';
+        }
+        
+        // Tıklanan öğeyi aç/kapat
+        item.classList.toggle('active');
+        
+        if (item.classList.contains('active')) {
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+        } else {
+          answer.style.maxHeight = '0px';
+        }
+      });
+      
+      // Başlangıçta tüm cevapları gizle
+      answer.style.maxHeight = '0px';
+    });
+  }
+
+  // SSS akordeonunu başlat
+  initFaqAccordion();
 });

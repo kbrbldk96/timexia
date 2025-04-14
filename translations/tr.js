@@ -160,6 +160,20 @@ export const translations = {
   "contactFormMessage": "Mesajınız",
   "contactFormSubmit": "Mesajı Gönder",
   
+  // SSS bölümü
+  "faqTitle": "Sık Sorulan Sorular",
+  "faqDescription": "Timexia hakkında merak ettikleriniz için hazırladığımız cevaplar",
+  "faqQuestion1": "Timexia'yı nasıl kullanmaya başlayabilirim?",
+  "faqAnswer1": "Timexia'yı kullanmaya başlamak çok kolay! Sağ üst köşede bulunan \"Hesap Oluştur\" butonuna tıklayarak ücretsiz kaydınızı yapabilir, ardından size özel yönetim panelinize erişebilirsiniz. Kurulumda yardıma ihtiyacınız olursa, destek ekibimiz her zaman yanınızda.",
+  "faqQuestion2": "Müşterilerim randevularını nasıl alacak?",
+  "faqAnswer2": "Müşterileriniz size özel randevu sayfanız üzerinden kolayca randevu alabilirler. Randevu sayfanızın linkini sosyal medya hesaplarınızda, web sitenizde veya Google profilinizde paylaşabilirsiniz. Ayrıca müşterilerinizi manuel olarak ekleme imkanına da sahipsiniz.",
+  "faqQuestion3": "Farklı çalışanlarım için ayrı takvimler oluşturabilir miyim?",
+  "faqAnswer3": "Evet, Timexia'da her çalışanınız için ayrı takvimler oluşturabilirsiniz. Böylece müşterileriniz, hizmet almak istedikleri çalışanı seçebilir ve müsait olduğu zamanlarda randevu alabilirler. Çalışanlarınız da kendi takvimlerine erişerek randevularını takip edebilirler.",
+  "faqQuestion4": "Randevuları toplu olarak yönetebilir miyim?",
+  "faqAnswer4": "Evet, Timexia yönetim panelinde randevularınızı toplu olarak görüntüleyebilir, düzenleyebilir veya iptal edebilirsiniz. Ayrıca belirli kriterlere göre filtreleme yaparak istediğiniz randevulara hızlıca erişebilirsiniz.",
+  "faqQuestion5": "Timexia'yı diğer takvimlerle senkronize edebilir miyim?",
+  "faqAnswer5": "Evet, Timexia Google Takvim, Apple Calendar ve Microsoft Outlook gibi popüler takvim uygulamalarıyla entegre çalışır. Böylece tüm randevularınız otomatik olarak diğer takvimlerinizde de görünür ve çakışmaları önler.",
+
   // Footer
   "footerTagline": "Randevu teknolojisini herkes için erişilebilir kılıyoruz.",
   "footerPages": "Sayfalar",

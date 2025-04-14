@@ -1809,3 +1809,112 @@
     transform: translateY(0px);
   }
 }
+
+// SSS (FAQ) section
+.faq {
+  padding: $spacing-4xl 0;
+  background-color: #fdfdff;
+  position: relative;
+  
+  .section-header {
+    margin-bottom: $spacing-2xl;
+  }
+  
+  .faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .faq-item {
+    background-color: $color-white;
+    border-radius: $border-radius-lg;
+    box-shadow: $shadow-sm;
+    margin-bottom: $spacing-md;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      box-shadow: $shadow;
+    }
+    
+    &.active {
+      box-shadow: $shadow;
+      
+      .faq-question {
+        background-color: rgba($color-primary, 0.03);
+        
+        .faq-icon {
+          background-color: $color-primary;
+          transform: rotate(45deg);
+          
+          svg {
+            stroke: $color-white;
+          }
+        }
+      }
+    }
+  }
+  
+  .faq-question {
+    padding: $spacing-lg $spacing-xl;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+    
+    h3 {
+      font-size: $font-size-lg;
+      font-weight: $font-weight-medium;
+      color: $color-dark;
+      margin: 0;
+      padding-right: $spacing-lg;
+    }
+    
+    .faq-icon {
+      background-color: rgba($color-primary, 0.1);
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: all 0.3s ease;
+      
+      svg {
+        width: 14px;
+        height: 14px;
+        stroke: $color-primary;
+        transition: all 0.3s ease;
+      }
+    }
+  }
+  
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0, 1, 0, 1);
+    
+    p {
+      padding: 0 $spacing-xl $spacing-lg $spacing-xl;
+      color: $color-text;
+      line-height: 1.6;
+      margin: 0;
+    }
+  }
+  
+  @media (max-width: $breakpoint-md) {
+    .faq-item {
+      margin-bottom: $spacing-sm;
+    }
+    
+    .faq-question {
+      padding: $spacing-md;
+      
+      h3 {
+        font-size: $font-size-md;
+      }
+    }
+  }
+}
