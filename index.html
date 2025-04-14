@@ -524,7 +524,7 @@
         </section>
         
         <!-- SSS (FAQ) Bölümü -->
-        <section class="faq">
+        <section class="faq" id="faq">
             <div class="container">
                 <div class="section-header text-center fade-in-up">
                     <h2 class="section-title" data-key="faqTitle">Sık Sorulan Sorular</h2>
@@ -639,6 +639,11 @@
                 el: '.swiper-pagination',
                 clickable: true,
             },
+            preventClicks: false,
+            preventClicksPropagation: false,
+            simulateTouch: true,
+            watchSlidesProgress: true,
+            touchStartPreventDefault: false, // Bu satır dokunmatik cihazlardaki yukarı atlama sorununu çözer
             breakpoints: {
                 // 768px altında 1 kart göster (mobil)
                 320: {

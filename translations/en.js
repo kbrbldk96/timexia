@@ -98,4 +98,48 @@ export const translations = {
   "footerExplore": "Explore",
   "footerCopyright": "© 2025 Timexia. All rights reserved.",
   "footerKimly": "This project was developed by <a href=\"https://kimlytechnology.com\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"footer__credit-link\">Kimly Technology</a>.",
+
+  // Fiyatlandırma bölümü
+  "pricingTitle": "Doğru Planı Seçin",
+  "pricingDescription": "Timexia, her ölçekte işletme için esnek fiyatlandırma seçenekleri sunar.",
+  "pricingMostPopular": "En Popüler",
+
+  "pricingPlan1Title": "Başlangıç",
+  "pricingPlan1Subtitle": "Küçük işletmeler için ideal",
+  "pricingPlan1PriceMonthly": "199",
+  "pricingPlan1PriceYearly": "169",
+
+  "pricingPlan2Title": "Profesyonel",
+  "pricingPlan2Subtitle": "Büyüyen işletmeler için",
+  "pricingPlan2PriceMonthly": "349",
+  "pricingPlan2PriceYearly": "297",
+
+  "pricingPlan3Title": "Kurumsal",
+  "pricingPlan3Subtitle": "Büyük işletme ve zincirler için",
+  "pricingPlan3PriceMonthly": "599",
+  "pricingPlan3PriceYearly": "509",
+
+  "pricingFeature1": "✓ Sınırsız randevu",
+  "pricingFeature2": "✓ Takvim senkronizasyonu",
+  "pricingFeature3": "✓ Personel yönetimi",
+  "pricingFeature4": "✓ AI destekli ilk kurulum",
+  "pricingFeature5": "✓ API erişimi",
+
+  "pricingButtonStart": "Planı Seç",
+  "pricingButtonPro": "Hemen Başla",
+  "pricingButtonEnterprise": "Planı Seç",
+  // SSS bölümü
+  "faqTitle": "Sık Sorulan Sorular",
+  "faqDescription": "Timexia hakkında merak ettikleriniz için hazırladığımız cevaplar",
+  "faqQuestion1": "Timexia'yı nasıl kullanmaya başlayabilirim?",
+  "faqAnswer1": "Timexia'yı kullanmaya başlamak çok kolay! Sağ üst köşede bulunan \"Hesap Oluştur\" butonuna tıklayarak ücretsiz kaydınızı yapabilir, ardından size özel yönetim panelinize erişebilirsiniz. Kurulumda yardıma ihtiyacınız olursa, destek ekibimiz her zaman yanınızda.",
+  "faqQuestion2": "Müşterilerim randevularını nasıl alacak?",
+  "faqAnswer2": "Müşterileriniz size özel randevu sayfanız üzerinden kolayca randevu alabilirler. Randevu sayfanızın linkini sosyal medya hesaplarınızda, web sitenizde veya Google profilinizde paylaşabilirsiniz. Ayrıca müşterilerinizi manuel olarak ekleme imkanına da sahipsiniz.",
+  "faqQuestion3": "Farklı çalışanlarım için ayrı takvimler oluşturabilir miyim?",
+  "faqAnswer3": "Evet, Timexia'da her çalışanınız için ayrı takvimler oluşturabilirsiniz. Böylece müşterileriniz, hizmet almak istedikleri çalışanı seçebilir ve müsait olduğu zamanlarda randevu alabilirler. Çalışanlarınız da kendi takvimlerine erişerek randevularını takip edebilirler.",
+  "faqQuestion4": "Randevuları toplu olarak yönetebilir miyim?",
+  "faqAnswer4": "Evet, Timexia yönetim panelinde randevularınızı toplu olarak görüntüleyebilir, düzenleyebilir veya iptal edebilirsiniz. Ayrıca belirli kriterlere göre filtreleme yaparak istediğiniz randevulara hızlıca erişebilirsiniz.",
+  "faqQuestion5": "Timexia'yı diğer takvimlerle senkronize edebilir miyim?",
+  "faqAnswer5": "Evet, Timexia Google Takvim, Apple Calendar ve Microsoft Outlook gibi popüler takvim uygulamalarıyla entegre çalışır. Böylece tüm randevularınız otomatik olarak diğer takvimlerinizde de görünür ve çakışmaları önler."
+
 };

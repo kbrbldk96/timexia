@@ -8,20 +8,29 @@
   box-sizing: border-box;
 }
 
+/* Base styles */
 html {
-  font-size: 16px;
   scroll-behavior: smooth;
+  font-size: $font-size-base;
 }
 
 body {
-  font-family: $font-family-body;
-  font-size: $font-size-base;
-  line-height: 1.6;
+  font-family: $font-primary;
+  font-weight: $font-weight-normal;
+  line-height: $line-height;
   color: $color-text;
-  background-color: $color-background;
+  background-color: $color-white;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding-top: 76px; /* Header yüksekliği kadar padding */
+  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
+}
+
+main {
+  flex: 1;
 }
 
 img,

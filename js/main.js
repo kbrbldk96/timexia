@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
   
-  // Modern navigation toggle
+  // Modern navigation toggle - Düzeltilmiş menü işlevselliği
   const mobileToggle = document.getElementById('mobile-toggle');
   const mainNav = document.getElementById('main-nav');
   
@@ -61,7 +61,25 @@ document.addEventListener('DOMContentLoaded', () => {
     mobileToggle.addEventListener('click', () => {
       mobileToggle.classList.toggle('active');
       mainNav.classList.toggle('active');
-      document.body.classList.toggle('menu-open'); // Body scroll'u engellemek için
+      document.body.classList.toggle('menu-open');
+      
+      // Menü açık olduğunda dokunmatik arayüzlerde scroll engelleme
+      if (mainNav.classList.contains('active')) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+    });
+    
+    // Menü içindeki linklere tıklayınca menüyü kapat
+    const menuLinks = mainNav.querySelectorAll('a');
+    menuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileToggle.classList.remove('active');
+        mainNav.classList.remove('active');
+        document.body.classList.remove('menu-open');
+        document.body.style.overflow = '';
+      });
     });
   }
   
@@ -320,26 +338,61 @@ document.addEventListener('DOMContentLoaded', () => {
       const question = item.querySelector('.faq-question');
       const answer = item.querySelector('.faq-answer');
       
-      question.addEventListener('click', () => {
+      if (question && answer) {
+        // Hem tıklama hem de dokunma olaylarını destekle
+        question.addEventListener('click', toggleAccordion);
+        
+        // Touch cihazlar için dokunma olayı ekle
+        question.addEventListener('touchstart', function(e) {
+          // Varsayılan davranışı engelle (kaydırma vs.)
+          e.preventDefault();
+          toggleAccordion();
+        }, { passive: false });
+        
+        // Başlangıçta tüm cevapları gizle
+        answer.style.maxHeight = '0px';
+      }
+      
+      // Akordeon toggle fonksiyonu
+      function toggleAccordion() {
         // Açık olan diğer SSS öğelerini kapat
         const openItem = document.querySelector('.faq-item.active');
         if (openItem && openItem !== item) {
           openItem.classList.remove('active');
-          openItem.querySelector('.faq-answer').style.maxHeight = '0px';
+          const openAnswer = openItem.querySelector('.faq-answer');
+          if (openAnswer) openAnswer.style.maxHeight = '0px';
         }
         
         // Tıklanan öğeyi aç/kapat
         item.classList.toggle('active');
         
         if (item.classList.contains('active')) {
+          // Yüksekliği dinamik olarak hesapla
           answer.style.maxHeight = answer.scrollHeight + 'px';
+          
+          // Mobil cihazlarda açılan öğeye otomatik kaydır
+          if (window.innerWidth <= 768) {
+            setTimeout(() => {
+              const rect = item.getBoundingClientRect();
+              const isInViewport = (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= window.innerHeight &&
+                rect.right <= window.innerWidth
+              );
+              
+              if (!isInViewport) {
+                item.scrollIntoView({
+                  behavior: 'smooth',
+                  block: 'start'
+                });
+              }
+            }, 300); // Animasyon tamamlandıktan sonra kaydır
+          }
         } else {
           answer.style.maxHeight = '0px';
         }
-      });
-      
-      // Başlangıçta tüm cevapları gizle
-      answer.style.maxHeight = '0px';
+      }
     });
   }
 
