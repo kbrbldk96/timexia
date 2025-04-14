@@ -1146,6 +1146,8 @@
   padding: $spacing-3xl 0;
   background-color: $color-background;
   position: relative;
+  width: 100%;
+  overflow-x: hidden; // Yatay taşmayı engelle
   
   .section-header {
     margin-bottom: $spacing-xl;
@@ -1154,35 +1156,30 @@
   .swiper-container {
     padding: 20px 0 60px;
     overflow: visible;
-    max-width: 1140px; // İçeriği sınırla
+    max-width: 100%; // Viewport'un ötesine taşmayı önle
     margin: 0 auto;
+    width: 100%; // Tam genişlik
+    box-sizing: border-box; // Padding ve border'ları genişliğe dahil et
+  }
+  
+  .swiper-wrapper {
+    box-sizing: border-box;
+    display: flex;
+    height: auto; // İçeriğe göre otomatik yükseklik
   }
   
   .swiper-slide {
     height: auto; // Yüksekliği içeriğe göre otomatik ayarla
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
     transition: transform 0.3s ease;
+    width: 100%; // Tüm genişliği kullan
     
     &:hover {
       transform: translateY(-8px);
-    }
-  }
-  
-  .swiper-pagination {
-    bottom: 20px;
-    
-    .swiper-pagination-bullet {
-      width: 8px;
-      height: 8px;
-      background-color: lighten($color-primary, 30%);
-      opacity: 0.7;
-      transition: all 0.3s ease;
-      
-      &-active {
-        opacity: 1;
-        width: 24px;
-        border-radius: 4px;
-        background-color: $color-primary;
-      }
     }
   }
   
@@ -1198,6 +1195,8 @@
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    width: 100%; // Kartın container'ı doldurmasını sağla
+    box-sizing: border-box;
     
     &:hover {
       box-shadow: $shadow-lg;
@@ -1269,6 +1268,33 @@
       svg {
         transform: translateX(5px);
       }
+    }
+  }
+  
+  // Responsive düzenlemeler
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-2xl 0;
+    
+    .swiper-container {
+      padding: 15px 0 50px;
+      overflow: hidden; // Mobilde overflow'u gizle
+    }
+    
+    // Mobilde dokunmatik kaydırma iyileştirmeleri
+    .swiper-slide {
+      touch-action: pan-y; // Sadece dikey kaydırmaya izin ver
+    }
+  }
+  
+  @media (max-width: $breakpoint-sm) {
+    padding: $spacing-xl 0;
+    
+    .swiper-container {
+      padding: 10px 0 40px;
+    }
+    
+    .sector-card {
+      padding: $spacing-md;
     }
   }
 }

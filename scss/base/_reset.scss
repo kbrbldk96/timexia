@@ -12,6 +12,11 @@
 html {
   scroll-behavior: smooth;
   font-size: $font-size-base;
+  overflow-x: hidden; // Yatay kaydırmayı tamamen engelle
+  width: 100%;
+  position: relative;
+  touch-action: manipulation; // Dokunmatik cihazlarda daha iyi tepki
+  -webkit-overflow-scrolling: touch; // iOS'ta daha pürüzsüz kaydırma
 }
 
 body {

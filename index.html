@@ -178,7 +178,7 @@
             <div class="shape shape-3"></div>
         </section>
 
-        <!-- Sektörler Carousel Bölümü -->
+        <!-- Sektörler Carousel Bölümü - Taşma sorununu çözen güvenli konteyner eklendi -->
         <section class="sectors">
             <div class="container">
                 <div class="section-header text-center fade-in-up">
@@ -186,102 +186,105 @@
                     <p class="section-description" data-key="sectorsDescription">Timexia birçok farklı sektörden işletme için randevu çözümleri sunar</p>
                 </div>
                 
-                <!-- Swiper slider -->
-                <div class="swiper-container sectors-slider fade-in-up" data-delay="200">
-                    <div class="swiper-wrapper">
-                        <!-- Sektör 1: Güzellik & Bakım -->
-                        <div class="swiper-slide">
-                            <div class="sector-card">
-                                <div class="sector-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <circle cx="6" cy="6" r="3"></circle>
-                                        <circle cx="6" cy="18" r="3"></circle>
-                                        <line x1="20" y1="4" x2="8.12" y2="15.88"></line>
-                                        <line x1="14.47" y1="14.48" x2="20" y2="20"></line>
-                                        <line x1="8.12" y1="8.12" x2="12" y2="12"></line>
-                                    </svg>
+                <!-- Slider güvenli sarmalayıcı -->
+                <div class="swiper-safe-wrapper">
+                    <!-- Swiper slider -->
+                    <div class="swiper-container sectors-slider fade-in-up touch-fix" data-delay="200">
+                        <div class="swiper-wrapper">
+                            <!-- Sektör 1: Güzellik & Bakım -->
+                            <div class="swiper-slide">
+                                <div class="sector-card">
+                                    <div class="sector-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="6" cy="6" r="3"></circle>
+                                            <circle cx="6" cy="18" r="3"></circle>
+                                            <line x1="20" y1="4" x2="8.12" y2="15.88"></line>
+                                            <line x1="14.47" y1="14.48" x2="20" y2="20"></line>
+                                            <line x1="8.12" y1="8.12" x2="12" y2="12"></line>
+                                        </svg>
+                                    </div>
+                                    <h3 class="sector-title" data-key="sectorsItemTitle1">Güzellik & Bakım</h3>
+                                    <p class="sector-description" data-key="sectorsItemDescription1">Kuaförler, güzellik salonları ve spa merkezleri için ideal randevu yönetimi</p>
                                 </div>
-                                <h3 class="sector-title" data-key="sectorsItemTitle1">Güzellik & Bakım</h3>
-                                <p class="sector-description" data-key="sectorsItemDescription1">Kuaförler, güzellik salonları ve spa merkezleri için ideal randevu yönetimi</p>
+                            </div>
+                            
+                            <!-- Sektör 2: Sağlık Hizmetleri -->
+                            <div class="swiper-slide">
+                                <div class="sector-card">
+                                    <div class="sector-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                                        </svg>
+                                    </div>
+                                    <h3 class="sector-title" data-key="sectorsItemTitle2">Sağlık Hizmetleri</h3>
+                                    <p class="sector-description" data-key="sectorsItemDescription2">Doktorlar, diş hekimleri ve sağlık klinikleri için hasta randevularını düzenleyin</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Sektör 3: Danışmanlık & Mentörlük -->
+                            <div class="swiper-slide">
+                                <div class="sector-card">
+                                    <div class="sector-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                                        </svg>
+                                    </div>
+                                    <h3 class="sector-title" data-key="sectorsItemTitle3" data-key="sectorsItemTitle3" >Danışmanlık & Mentörlük</h3>
+                                    <p class="sector-description" data-key="sectorsItemDescription3">Psikologlar, koçlar ve danışmanlar için özel seans programlaması</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Sektör 4: Eğitim & Kurslar -->
+                            <div class="swiper-slide">
+                                <div class="sector-card">
+                                    <div class="sector-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                                        </svg>
+                                    </div>
+                                    <h3 class="sector-title" data-key="sectorsItemTitle4">Eğitim & Kurslar</h3>
+                                    <p class="sector-description" data-key="sectorsItemDescription4">Özel ders, kurs ve atölye çalışmaları için öğrenci kayıt sistemi</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Sektör 5: Spor & Fitness -->
+                            <div class="swiper-slide">
+                                <div class="sector-card">
+                                    <div class="sector-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M4 10v4"></path>
+                                            <path d="M7 7v10"></path>
+                                            <path d="M17 7v10"></path>
+                                            <path d="M20 10v4"></path>
+                                            <path d="M7 12h10"></path>
+                                        </svg>
+                                    </div>
+                                    <h3 class="sector-title" data-key="sectorsItemTitle5">Spor & Fitness</h3>
+                                    <p class="sector-description" data-key="sectorsItemDescription5">Spor eğitmenleri ve fitness merkezleri için rezervasyon ve sınıf yönetimi</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Sektör 6: Daha Fazla -->
+                            <div class="swiper-slide">
+                                <div class="sector-card sector-card-more">
+                                    <div class="sector-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="12" cy="12" r="10"></circle>
+                                            <line x1="12" y1="8" x2="12" y2="16"></line>
+                                            <line x1="8" y1="12" x2="16" y2="12"></line>
+                                        </svg>
+                                    </div>
+                                    <h3 class="sector-title" data-key="sectorsItemTitle6">Daha Fazla Sektör</h3>
+                                    <p class="sector-description" data-key="sectorsItemDescription6">Timexia, randevu ihtiyacı olan tüm işletmelere uygundur. Detaylı bilgi için tıklayın.</p>
+                                    
+                                </div>
                             </div>
                         </div>
                         
-                        <!-- Sektör 2: Sağlık Hizmetleri -->
-                        <div class="swiper-slide">
-                            <div class="sector-card">
-                                <div class="sector-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-                                    </svg>
-                                </div>
-                                <h3 class="sector-title" data-key="sectorsItemTitle2">Sağlık Hizmetleri</h3>
-                                <p class="sector-description" data-key="sectorsItemDescription2">Doktorlar, diş hekimleri ve sağlık klinikleri için hasta randevularını düzenleyin</p>
-                            </div>
-                        </div>
-                        
-                        <!-- Sektör 3: Danışmanlık & Mentörlük -->
-                        <div class="swiper-slide">
-                            <div class="sector-card">
-                                <div class="sector-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-                                    </svg>
-                                </div>
-                                <h3 class="sector-title" data-key="sectorsItemTitle3" data-key="sectorsItemTitle3" >Danışmanlık & Mentörlük</h3>
-                                <p class="sector-description" data-key="sectorsItemDescription3">Psikologlar, koçlar ve danışmanlar için özel seans programlaması</p>
-                            </div>
-                        </div>
-                        
-                        <!-- Sektör 4: Eğitim & Kurslar -->
-                        <div class="swiper-slide">
-                            <div class="sector-card">
-                                <div class="sector-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-                                        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-                                    </svg>
-                                </div>
-                                <h3 class="sector-title" data-key="sectorsItemTitle4">Eğitim & Kurslar</h3>
-                                <p class="sector-description" data-key="sectorsItemDescription4">Özel ders, kurs ve atölye çalışmaları için öğrenci kayıt sistemi</p>
-                            </div>
-                        </div>
-                        
-                        <!-- Sektör 5: Spor & Fitness -->
-                        <div class="swiper-slide">
-                            <div class="sector-card">
-                                <div class="sector-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M4 10v4"></path>
-                                        <path d="M7 7v10"></path>
-                                        <path d="M17 7v10"></path>
-                                        <path d="M20 10v4"></path>
-                                        <path d="M7 12h10"></path>
-                                    </svg>
-                                </div>
-                                <h3 class="sector-title" data-key="sectorsItemTitle5">Spor & Fitness</h3>
-                                <p class="sector-description" data-key="sectorsItemDescription5">Spor eğitmenleri ve fitness merkezleri için rezervasyon ve sınıf yönetimi</p>
-                            </div>
-                        </div>
-                        
-                        <!-- Sektör 6: Daha Fazla -->
-                        <div class="swiper-slide">
-                            <div class="sector-card sector-card-more">
-                                <div class="sector-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <circle cx="12" cy="12" r="10"></circle>
-                                        <line x1="12" y1="8" x2="12" y2="16"></line>
-                                        <line x1="8" y1="12" x2="16" y2="12"></line>
-                                    </svg>
-                                </div>
-                                <h3 class="sector-title" data-key="sectorsItemTitle6">Daha Fazla Sektör</h3>
-                                <p class="sector-description" data-key="sectorsItemDescription6">Timexia, randevu ihtiyacı olan tüm işletmelere uygundur. Detaylı bilgi için tıklayın.</p>
-                                
-                            </div>
-                        </div>
+                        <!-- Pagination için nokta göstergeleri -->
+                        <div class="swiper-pagination"></div>
                     </div>
-                    
-                    <!-- Pagination için nokta göstergeleri -->
-                    <div class="swiper-pagination"></div>
                 </div>
             </div>
         </section>
@@ -627,40 +630,93 @@
     <!-- Swiper.js JavaScript -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
-        const swiper = new Swiper('.sectors-slider', {
-            slidesPerView: 3,
-            spaceBetween: 30,
-            loop: true,
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false,
-            },
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            preventClicks: false,
-            preventClicksPropagation: false,
-            simulateTouch: true,
-            watchSlidesProgress: true,
-            touchStartPreventDefault: false, // Bu satır dokunmatik cihazlardaki yukarı atlama sorununu çözer
-            breakpoints: {
-                // 768px altında 1 kart göster (mobil)
-                320: {
-                    slidesPerView: 1,
-                    spaceBetween: 20
-                },
-                // 992px altında 2 kart göster (tablet)
-                768: {
-                    slidesPerView: 2,
-                    spaceBetween: 30
-                },
-                // 992px üstünde 3 kart göster (masaüstü)
-                992: {
-                    slidesPerView: 3,
-                    spaceBetween: 30
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobil cihazlarda dokunma olayını düzgün işlemek için yardımcı fonksiyon
+            function preventBodyScroll(event) {
+                if (event.target.closest('.swiper-container, .swiper-wrapper, .swiper-slide')) {
+                    event.stopPropagation();
                 }
             }
+            
+            // Dokunmatik cihazlarda scroll sorununu çözen olay dinleyicileri
+            document.addEventListener('touchstart', preventBodyScroll, { passive: false });
+            document.addEventListener('touchmove', preventBodyScroll, { passive: false });
+            
+            const swiper = new Swiper('.sectors-slider', {
+                slidesPerView: 'auto',  // 'auto' kullanarak içerik genişliğine göre ayarlama
+                centeredSlides: false,
+                spaceBetween: 20,
+                loop: false,  // Loop sorunlar yaratabilir, devre dışı bıraktık
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: true,
+                    pauseOnMouseEnter: true
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                    dynamicBullets: true
+                },
+                // Mobil sorunları çözmek için optimize edilmiş parametreler
+                a11y: false,
+                threshold: 5,  // Çok düşük hassasiyet, yanlışlıkla kaydırmaları önler
+                touchRatio: 0.8,
+                resistanceRatio: 0,  // Direnci kaldır, sınırda fazla çekilmeyi engelle
+                preventClicks: true,
+                preventClicksPropagation: true,
+                touchMoveStopPropagation: true,
+                normalizeSlideIndex: false,
+                cssMode: true,  // Modern tarayıcılarda CSS kaydırmayı kullan (daha smooth)
+                watchSlidesProgress: true,
+                touchEventsTarget: 'wrapper',
+                touchReleaseOnEdges: true,
+                edgeSwipeDetection: true,
+                nested: false,
+                grabCursor: true,
+                breakpoints: {
+                    // 768px altında 1 kart göster (mobil)
+                    320: {
+                        slidesPerView: 1,
+                        spaceBetween: 15,
+                        touchRatio: 0.6,  // Mobilde daha düşük hassasiyet
+                        cssMode: true
+                    },
+                    // 992px altında 2 kart göster (tablet)
+                    768: {
+                        slidesPerView: 2,
+                        spaceBetween: 20,
+                        cssMode: true
+                    },
+                    // 992px üstünde 3 kart göster (masaüstü)
+                    992: {
+                        slidesPerView: 3,
+                        spaceBetween: 30
+                    }
+                },
+                on: {
+                    // Slider ile etkileşimde yukarı kayma sorununu engellemek için
+                    touchStart: function(swiper, event) {
+                        if (event && event.preventDefault) {
+                            event.preventDefault();
+                        }
+                        document.body.style.overflow = 'hidden';
+                    },
+                    touchEnd: function() {
+                        document.body.style.overflow = '';
+                    },
+                    sliderMove: function(swiper, event) {
+                        if (event && event.preventDefault) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                    }
+                }
+            });
+            
+            // Sayfa scroll sorunlarını çözmek için yardımcı
+            window.addEventListener('resize', function() {
+                swiper.update();
+            });
         });
     </script>
 </body>

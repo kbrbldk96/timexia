@@ -399,3 +399,40 @@ document.addEventListener('DOMContentLoaded', () => {
   // SSS akordeonunu başlat
   initFaqAccordion();
 });
+
+// Dokunmatik cihaz sorunu düzeltmesi
+document.addEventListener('DOMContentLoaded', function() {
+  // Dokunmatik cihaz tespiti
+  const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
+  
+  if (isTouchDevice) {
+    document.documentElement.classList.add('touch-device');
+    
+    // Tüm swiper konteynerlerine touch-fix sınıfı ekle
+    const swiperContainers = document.querySelectorAll('.swiper-container');
+    swiperContainers.forEach(container => {
+      container.classList.add('touch-fix');
+    });
+    
+    // iOS için özel düzeltme
+    if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+      document.documentElement.classList.add('ios-device');
+    }
+  }
+  
+  // Yatay taşma sorunu için tüm sayfayı kontrol et
+  function checkOverflow() {
+    const body = document.body;
+    const html = document.documentElement;
+    
+    if (body.offsetWidth > window.innerWidth) {
+      console.log('Yatay taşma tespit edildi, düzeltiliyor...');
+      body.style.overflowX = 'hidden';
+      html.style.overflowX = 'hidden';
+    }
+  }
+  
+  // Sayfa yüklendikten sonra ve pencere boyutunu değiştirdiğimizde kontrol et
+  window.addEventListener('load', checkOverflow);
+  window.addEventListener('resize', checkOverflow);
+});
