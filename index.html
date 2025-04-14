@@ -630,7 +630,74 @@
     <!-- Swiper.js JavaScript -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
+        // Ana DOMContentLoaded event'i - tek bir event kullanıyoruz
         document.addEventListener('DOMContentLoaded', function() {
+            // Header yüklendikten sonra mobil menü işlevselliğini aktifleştir
+            document.addEventListener('partialLoaded', function(e) {
+                if (e.detail === 'header') {
+                    setTimeout(initMobileMenu, 100); // Küçük bir gecikme ekleyelim
+                }
+            });
+
+            // Eğer header zaten yüklenmiş olabilir - kontrol edelim
+            if (document.getElementById('mobile-toggle') && document.getElementById('main-nav')) {
+                initMobileMenu();
+            }
+
+            // Mobil menü işlevselliğini başlatan fonksiyon
+            function initMobileMenu() {
+                const mobileToggle = document.getElementById('mobile-toggle');
+                const mainNav = document.getElementById('main-nav');
+                
+                if (!mobileToggle || !mainNav) {
+                    console.error('Mobil menü elemanları bulunamadı!');
+                    return;
+                }
+                
+                // Eski listener'ları temizle
+                mobileToggle.removeEventListener('click', handleMobileToggle);
+                mobileToggle.removeEventListener('touchend', handleMobileToggle);
+                
+                // Yeni listener'ları ekle
+                mobileToggle.addEventListener('click', handleMobileToggle, true);
+                mobileToggle.addEventListener('touchend', handleMobileToggle, true);
+                
+                // Menü içindeki linklere tıklayınca menüyü kapat
+                const menuLinks = mainNav.querySelectorAll('a');
+                menuLinks.forEach(link => {
+                    link.addEventListener('click', closeMenu);
+                });
+                
+                // Tıklama işleme fonksiyonu - global değişken kullanmadan
+                function handleMobileToggle(e) {
+                    e.preventDefault();
+                    if (e.type === 'touchend') {
+                        e.stopPropagation(); // Touch event'leri için propagasyonu durdur
+                    }
+                    
+                    toggleMenu();
+                }
+                
+                // Menüyü açıp kapatan fonksiyon
+                function toggleMenu() {
+                    mobileToggle.classList.toggle('active');
+                    mainNav.classList.toggle('active');
+                    document.body.classList.toggle('menu-open');
+                    
+                    // Menü açık olduğunda scroll'u engelle
+                    document.body.style.overflow = mainNav.classList.contains('active') ? 'hidden' : '';
+                }
+                
+                // Menüyü kapatma fonksiyonu
+                function closeMenu() {
+                    mobileToggle.classList.remove('active');
+                    mainNav.classList.remove('active');
+                    document.body.classList.remove('menu-open');
+                    document.body.style.overflow = '';
+                }
+            }
+            
+            // Swiper ve diğer kodlar aynen devam ediyor...
             // Mobil cihazlarda dokunma olayını düzgün işlemek için yardımcı fonksiyon
             function preventBodyScroll(event) {
                 if (event.target.closest('.swiper-container, .swiper-wrapper, .swiper-slide')) {
@@ -642,82 +709,140 @@
             document.addEventListener('touchstart', preventBodyScroll, { passive: false });
             document.addEventListener('touchmove', preventBodyScroll, { passive: false });
             
-            const swiper = new Swiper('.sectors-slider', {
-                slidesPerView: 'auto',  // 'auto' kullanarak içerik genişliğine göre ayarlama
-                centeredSlides: false,
-                spaceBetween: 20,
-                loop: false,  // Loop sorunlar yaratabilir, devre dışı bıraktık
-                autoplay: {
-                    delay: 3000,
-                    disableOnInteraction: true,
-                    pauseOnMouseEnter: true
-                },
-                pagination: {
-                    el: '.swiper-pagination',
-                    clickable: true,
-                    dynamicBullets: true
-                },
-                // Mobil sorunları çözmek için optimize edilmiş parametreler
-                a11y: false,
-                threshold: 5,  // Çok düşük hassasiyet, yanlışlıkla kaydırmaları önler
-                touchRatio: 0.8,
-                resistanceRatio: 0,  // Direnci kaldır, sınırda fazla çekilmeyi engelle
-                preventClicks: true,
-                preventClicksPropagation: true,
-                touchMoveStopPropagation: true,
-                normalizeSlideIndex: false,
-                cssMode: true,  // Modern tarayıcılarda CSS kaydırmayı kullan (daha smooth)
-                watchSlidesProgress: true,
-                touchEventsTarget: 'wrapper',
-                touchReleaseOnEdges: true,
-                edgeSwipeDetection: true,
-                nested: false,
-                grabCursor: true,
-                breakpoints: {
-                    // 768px altında 1 kart göster (mobil)
-                    320: {
-                        slidesPerView: 1,
-                        spaceBetween: 15,
-                        touchRatio: 0.6,  // Mobilde daha düşük hassasiyet
-                        cssMode: true
-                    },
-                    // 992px altında 2 kart göster (tablet)
-                    768: {
-                        slidesPerView: 2,
-                        spaceBetween: 20,
-                        cssMode: true
-                    },
-                    // 992px üstünde 3 kart göster (masaüstü)
-                    992: {
-                        slidesPerView: 3,
-                        spaceBetween: 30
-                    }
-                },
-                on: {
-                    // Slider ile etkileşimde yukarı kayma sorununu engellemek için
-                    touchStart: function(swiper, event) {
-                        if (event && event.preventDefault) {
-                            event.preventDefault();
-                        }
-                        document.body.style.overflow = 'hidden';
-                    },
-                    touchEnd: function() {
-                        document.body.style.overflow = '';
-                    },
-                    sliderMove: function(swiper, event) {
-                        if (event && event.preventDefault) {
-                            event.preventDefault();
-                            event.stopPropagation();
-                        }
-                    }
-                }
-            });
+            // Swiper yüklendiğini kontrol et
+            if (typeof Swiper !== 'undefined') {
+                initSwiper();
+            } else {
+                console.error("Swiper kütüphanesi yüklenemedi!");
+            }
             
-            // Sayfa scroll sorunlarını çözmek için yardımcı
-            window.addEventListener('resize', function() {
-                swiper.update();
-            });
+            function initSwiper() {
+                // Taşma sorununu önlemek için container stilini düzelt
+                const swiperContainer = document.querySelector('.sectors-slider');
+                if (swiperContainer) {
+                    swiperContainer.style.maxWidth = '100%';
+                    swiperContainer.style.overflow = 'hidden';
+                }
+                
+                const swiper = new Swiper('.sectors-slider', {
+                    slidesPerView: 'auto',  // Varsayılan görünüm
+                    width: null, // Otomatik genişlik
+                    centeredSlides: false,
+                    spaceBetween: 20,
+                    loop: false,
+                    autoplay: {
+                        delay: 3000,
+                        disableOnInteraction: true,
+                        pauseOnMouseEnter: true
+                    },
+                    pagination: {
+                        el: '.swiper-pagination',
+                        clickable: true,
+                        dynamicBullets: true
+                    },
+                    // Mobil sorunları çözmek için optimize edilmiş parametreler
+                    a11y: false,
+                    threshold: 5,
+                    touchRatio: 0.8,
+                    resistanceRatio: 0,
+                    preventClicks: true,
+                    preventClicksPropagation: true,
+                    touchMoveStopPropagation: true,
+                    normalizeSlideIndex: false,
+                    cssMode: true,
+                    watchSlidesProgress: true,
+                    touchEventsTarget: 'wrapper',
+                    touchReleaseOnEdges: true,
+                    edgeSwipeDetection: true,
+                    nested: false,
+                    grabCursor: true,
+                    breakpoints: {
+                        // Mobil için en kritik ayarlar
+                        320: {
+                            slidesPerView: 1,
+                            spaceBetween: 15,
+                            width: null, // Otomatik genişlik kullan
+                            touchRatio: 0.6,
+                            cssMode: true,
+                            centerInsufficientSlides: true
+                        },
+                        // Tablet için ayarlar
+                        768: {
+                            slidesPerView: 2,
+                            spaceBetween: 20,
+                            cssMode: true,
+                            width: null // Otomatik genişlik kullan
+                        },
+                        // Masaüstü için ayarlar
+                        992: {
+                            slidesPerView: 3,
+                            spaceBetween: 30,
+                            width: null // Otomatik genişlik kullan
+                        }
+                    },
+                    on: {
+                        init: function() {
+                            // Swiper yüklendikten sonra kontrol et
+                            this.update();
+                            
+                            // Mobilde taşma sorunu için
+                            if (window.innerWidth < 768) {
+                                const slides = document.querySelectorAll('.swiper-slide');
+                                slides.forEach(slide => {
+                                    slide.style.width = '100%';
+                                });
+                            }
+                        },
+                        // Slider ile etkileşimde yukarı kayma sorununu engellemek için
+                        touchStart: function(swiper, event) {
+                            if (event && event.preventDefault) {
+                                event.preventDefault();
+                            }
+                            document.body.style.overflowY = 'hidden';
+                        },
+                        touchEnd: function() {
+                            document.body.style.overflowY = '';
+                        },
+                        sliderMove: function(swiper, event) {
+                            if (event && event.preventDefault) {
+                                event.preventDefault();
+                                event.stopPropagation();
+                            }
+                        },
+                        resize: function() {
+                            this.update();
+                            
+                            // Mobilde taşma sorunu için yeniden kontrol
+                            if (window.innerWidth < 768) {
+                                const slides = document.querySelectorAll('.swiper-slide');
+                                slides.forEach(slide => {
+                                    slide.style.width = '100%';
+                                });
+                            }
+                        }
+                    }
+                });
+                
+                // Sayfa scroll sorunlarını çözmek için yardımcı
+                window.addEventListener('resize', function() {
+                    swiper.update();
+                    
+                    // CSS ile taşma sorunları için
+                    const swiperWrapper = document.querySelector('.swiper-wrapper');
+                    if (swiperWrapper) {
+                        if (window.innerWidth < 768) {
+                            swiperWrapper.style.width = '100%';
+                        } else {
+                            swiperWrapper.style.width = '';
+                        }
+                    }
+                });
+                
+                // İlk yüklemede bir kere tetikle
+                window.dispatchEvent(new Event('resize'));
+            }
         });
     </script>
 </body>
 </html>
+
