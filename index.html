@@ -394,6 +394,135 @@
             </div>
         </section>
         
+        <!-- Fiyatlandırma Bölümü -->
+        <section id="pricing" class="pricing">
+            <div class="container">
+                <div class="section-header text-center fade-in-up">
+                    <h2 class="section-title" data-key="pricingTitle">Doğru Planı Seçin</h2>
+                    <p class="section-description" data-key="pricingDescription">Timexia, her ölçekte işletme için esnek fiyatlandırma seçenekleri sunar.</p>
+                </div>
+
+                <div class="pricing-toggle fade-in-up" data-delay="100">
+                    <span class="pricing-toggle-text active" data-period="monthly">Aylık</span>
+                    <div class="pricing-toggle-switch">
+                        <input type="checkbox" id="pricing-switch">
+                        <label for="pricing-switch"></label>
+                    </div>
+                    <span class="pricing-toggle-text" data-period="yearly">Yıllık</span>
+                    <span class="pricing-toggle-discount">%15 İndirim</span>
+                </div>
+
+                <div class="pricing-plans">
+                    <!-- Başlangıç Planı -->
+                    <div class="pricing-plan fade-in-up" data-delay="200">
+                        <div class="pricing-plan-header">
+                            <h3 class="pricing-plan-title" data-key="pricingPlan1Title">Başlangıç</h3>
+                            <p class="pricing-plan-subtitle" data-key="pricingPlan1Subtitle">Küçük işletmeler için ideal</p>
+                        </div>
+                        
+                        <div class="pricing-plan-price">
+                            <div class="price monthly">
+                                <span class="currency">₺</span>
+                                <span class="amount" data-key="pricingPlan1PriceMonthly">199</span>
+                                <span class="period">/ay</span>
+                            </div>
+                            <div class="price yearly hidden">
+                                <span class="currency">₺</span>
+                                <span class="amount" data-key="pricingPlan1PriceYearly">169</span>
+                                <span class="period">/ay</span>
+                            </div>
+                        </div>
+                        
+                        <div class="pricing-plan-features">
+                            <ul>
+                                <li data-key="pricingFeature1">✓ Sınırsız randevu</li>
+                                <li data-key="pricingFeature2">✓ Takvim senkronizasyonu</li>
+                                <li data-key="pricingFeature3">✓ Personel yönetimi</li>
+                                <li class="feature-disabled" data-key="pricingFeature4">✗ AI destekli ilk kurulum</li>
+                                <li class="feature-disabled" data-key="pricingFeature5">✗ API erişimi</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="pricing-plan-footer">
+                            <a href="#" class="btn btn-outline btn-lg" data-key="pricingButtonStart">Planı Seç</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Profesyonel Planı - En popüler -->
+                    <div class="pricing-plan pricing-plan-featured fade-in-up" data-delay="300">
+                        <div class="pricing-plan-badge" data-key="pricingMostPopular">En Popüler</div>
+                        
+                        <div class="pricing-plan-header">
+                            <h3 class="pricing-plan-title" data-key="pricingPlan2Title">Profesyonel</h3>
+                            <p class="pricing-plan-subtitle" data-key="pricingPlan2Subtitle">Büyüyen işletmeler için</p>
+                        </div>
+                        
+                        <div class="pricing-plan-price">
+                            <div class="price monthly">
+                                <span class="currency">₺</span>
+                                <span class="amount" data-key="pricingPlan2PriceMonthly">349</span>
+                                <span class="period">/ay</span>
+                            </div>
+                            <div class="price yearly hidden">
+                                <span class="currency">₺</span>
+                                <span class="amount" data-key="pricingPlan2PriceYearly">297</span>
+                                <span class="period">/ay</span>
+                            </div>
+                        </div>
+                        
+                        <div class="pricing-plan-features">
+                            <ul>
+                                <li data-key="pricingFeature1">✓ Sınırsız randevu</li>
+                                <li data-key="pricingFeature2">✓ Takvim senkronizasyonu</li>
+                                <li data-key="pricingFeature3">✓ Personel yönetimi</li>
+                                <li data-key="pricingFeature4">✓ AI destekli ilk kurulum</li>
+                                <li class="feature-disabled" data-key="pricingFeature5">✗ API erişimi</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="pricing-plan-footer">
+                            <a href="#" class="btn btn-primary btn-lg" data-key="pricingButtonPro">Hemen Başla</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Kurumsal Planı -->
+                    <div class="pricing-plan fade-in-up" data-delay="400">
+                        <div class="pricing-plan-header">
+                            <h3 class="pricing-plan-title" data-key="pricingPlan3Title">Kurumsal</h3>
+                            <p class="pricing-plan-subtitle" data-key="pricingPlan3Subtitle">Büyük işletme ve zincirler için</p>
+                        </div>
+                        
+                        <div class="pricing-plan-price">
+                            <div class="price monthly">
+                                <span class="currency">₺</span>
+                                <span class="amount" data-key="pricingPlan3PriceMonthly">599</span>
+                                <span class="period">/ay</span>
+                            </div>
+                            <div class="price yearly hidden">
+                                <span class="currency">₺</span>
+                                <span class="amount" data-key="pricingPlan3PriceYearly">509</span>
+                                <span class="period">/ay</span>
+                            </div>
+                        </div>
+                        
+                        <div class="pricing-plan-features">
+                            <ul>
+                                <li data-key="pricingFeature1">✓ Sınırsız randevu</li>
+                                <li data-key="pricingFeature2">✓ Takvim senkronizasyonu</li>
+                                <li data-key="pricingFeature3">✓ Personel yönetimi</li>
+                                <li data-key="pricingFeature4">✓ AI destekli ilk kurulum</li>
+                                <li data-key="pricingFeature5">✓ API erişimi</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="pricing-plan-footer">
+                            <a href="#" class="btn btn-outline btn-lg" data-key="pricingButtonEnterprise">Planı Seç</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
     </main>
 
     <!-- Footer -->

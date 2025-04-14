@@ -1307,6 +1307,323 @@
   }
 }
 
+// Pricing section
+.pricing {
+  padding: $spacing-4xl 0;
+  background: linear-gradient(to bottom, #f8f9ff 0%, #f5f6ff 100%);
+  position: relative;
+  overflow: hidden;
+  
+  .section-header {
+    margin-bottom: $spacing-2xl;
+  }
+  
+  // Fiyat toggle bölümü
+  .pricing-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: $spacing-2xl;
+    
+    &-text {
+      font-size: $font-size-md;
+      font-weight: $font-weight-medium;
+      color: $color-text;
+      padding: 0 $spacing-md;
+      cursor: pointer;
+      
+      &.active {
+        color: $color-primary;
+        font-weight: $font-weight-semibold;
+      }
+    }
+    
+    &-switch {
+      position: relative;
+      width: 60px;
+      height: 30px;
+      
+      input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+      
+      label {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: lighten($color-primary, 25%);
+        border-radius: 34px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        
+        &:before {
+          position: absolute;
+          content: "";
+          height: 22px;
+          width: 22px;
+          left: 4px;
+          bottom: 4px;
+          background-color: white;
+          border-radius: 50%;
+          transition: all 0.3s ease;
+        }
+      }
+      
+      input:checked + label {
+        background-color: $color-primary;
+      }
+      
+      input:checked + label:before {
+        transform: translateX(30px);
+      }
+    }
+    
+    &-discount {
+      background-color: rgba($color-primary, 0.1);
+      color: $color-primary;
+      font-size: 0.8rem;
+      font-weight: $font-weight-semibold;
+      padding: 4px 8px;
+      border-radius: 12px;
+      margin-left: $spacing-sm;
+    }
+  }
+  
+  // Planlar bölümü
+  .pricing-plans {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: $spacing-lg;
+    max-width: 1200px;
+    margin: 0 auto;
+    
+    @media (max-width: $breakpoint-lg) {
+      gap: $spacing-md;
+    }
+    
+    @media (max-width: $breakpoint-md) {
+      flex-direction: column;
+      align-items: center;
+      max-width: 500px;
+    }
+  }
+  
+  // Plan kartı
+  .pricing-plan {
+    background-color: $color-white;
+    border-radius: $border-radius-lg;
+    padding: $spacing-2xl;
+    width: 100%;
+    max-width: 350px;
+    box-shadow: $shadow-sm;
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+    border: 1px solid rgba($color-primary, 0.1);
+    
+    &:hover {
+      transform: translateY(-10px);
+      box-shadow: $shadow-lg;
+      border-color: rgba($color-primary, 0.3);
+    }
+    
+    // Öne çıkarılmış plan
+    &-featured {
+      box-shadow: 0 10px 40px rgba($color-primary, 0.15);
+      border: 2px solid $color-primary;
+      transform: scale(1.05);
+      margin-top: -15px;
+      margin-bottom: -15px;
+      
+      @media (max-width: $breakpoint-md) {
+        transform: scale(1);
+        margin-top: $spacing-lg;
+        margin-bottom: $spacing-lg;
+      }
+      
+      .pricing-plan-title {
+        color: $color-primary;
+      }
+      
+      &:hover {
+        transform: translateY(-10px) scale(1.05);
+        
+        @media (max-width: $breakpoint-md) {
+          transform: translateY(-10px) scale(1);
+        }
+      }
+    }
+    
+    // Badge
+    &-badge {
+      position: absolute;
+      top: -12px;
+      right: 20px;
+      background: linear-gradient(135deg, $color-primary 0%, darken($color-primary, 15%) 100%);
+      color: $color-white;
+      font-size: $font-size-sm;
+      font-weight: $font-weight-bold;
+      padding: 6px 16px;
+      border-radius: 30px;
+      box-shadow: 0 4px 12px rgba($color-primary, 0.2);
+    }
+    
+    // Plan başlığı
+    &-header {
+      margin-bottom: $spacing-xl;
+      text-align: center;
+    }
+    
+    &-title {
+      font-size: $font-size-2xl;
+      font-weight: $font-weight-bold;
+      color: $color-dark;
+      margin-bottom: $spacing-sm;
+    }
+    
+    &-subtitle {
+      font-size: $font-size-sm;
+      color: $color-text-light;
+    }
+    
+    // Fiyat bölümü
+    &-price {
+      margin-bottom: $spacing-xl;
+      text-align: center;
+      
+      .price {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        
+        &.hidden {
+          display: none;
+        }
+      }
+      
+      .currency {
+        font-size: $font-size-2xl;
+        font-weight: $font-weight-bold;
+        line-height: 1;
+        align-self: flex-start;
+        margin-top: 5px;
+      }
+      
+      .amount {
+        font-size: 3.5rem;
+        font-weight: $font-weight-bold;
+        color: $color-dark;
+        line-height: 1;
+        margin: 0 $spacing-sm 0 $spacing-sm;
+      }
+      
+      .period {
+        font-size: $font-size-md;
+        color: $color-text-light;
+        align-self: flex-end;
+        margin-bottom: 8px;
+      }
+    }
+    
+    // Özellikler listesi
+    &-features {
+      margin-bottom: $spacing-xl;
+      flex-grow: 1;
+      
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      
+      li {
+        padding: $spacing-sm 0;
+        font-size: $font-size-md;
+        color: $color-text;
+        
+        &.feature-disabled {
+          color: $color-text-light;
+          text-decoration: none;
+          opacity: 0.7;
+        }
+      }
+    }
+    
+    // Footer ve buton
+    &-footer {
+      text-align: center;
+      
+      .btn {
+        width: 100%;
+        padding: $spacing-md;
+      }
+    }
+    
+    @media (max-width: $breakpoint-md) {
+      padding: $spacing-xl;
+      margin-bottom: $spacing-lg;
+      max-width: 100%;
+    }
+  }
+  
+  // Mobil uyum - slider özelliği
+  @media (max-width: $breakpoint-md) {
+    .pricing-plans {
+      display: flex;
+      flex-direction: row;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      padding: $spacing-md 0 $spacing-xl;
+      max-width: 100%;
+      
+      // Planlar arası boşluk
+      .pricing-plan {
+        scroll-snap-align: center;
+        flex: 0 0 85%;
+        margin-right: $spacing-lg;
+        
+        &:last-child {
+          margin-right: $spacing-lg; // Sağ tarafta da boşluk bırak
+        }
+      }
+    }
+  }
+  
+  // Arka plan dekoratif elementler
+  &:before {
+    content: '';
+    position: absolute;
+    bottom: -100px;
+    right: -100px;
+    width: 400px;
+    height: 400px;
+    border-radius: 100%;
+    background: radial-gradient(rgba($color-primary, 0.05) 0%, rgba($color-primary, 0) 70%);
+    z-index: 0;
+  }
+  
+  &:after {
+    content: '';
+    position: absolute;
+    top: -100px;
+    left: -100px;
+    width: 300px;
+    height: 300px;
+    border-radius: 100%;
+    background: radial-gradient(rgba($color-primary, 0.05) 0%, rgba($color-primary, 0) 70%);
+    z-index: 0;
+  }
+}
+
 // CTA section
 .cta {
   position: relative;

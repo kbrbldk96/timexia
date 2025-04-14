@@ -86,6 +86,36 @@ export const translations = {
   "suitabilityItem6": "İşletmenizi dijital dönüşüme hazırlamak istiyorsanız",
   "startNowButton": "Hemen Başla",
 
+  // Fiyatlandırma bölümü
+  "pricingTitle": "Doğru Planı Seçin",
+  "pricingDescription": "Timexia, her ölçekte işletme için esnek fiyatlandırma seçenekleri sunar.",
+  "pricingMostPopular": "En Popüler",
+
+  "pricingPlan1Title": "Başlangıç",
+  "pricingPlan1Subtitle": "Küçük işletmeler için ideal",
+  "pricingPlan1PriceMonthly": "199",
+  "pricingPlan1PriceYearly": "169",
+
+  "pricingPlan2Title": "Profesyonel",
+  "pricingPlan2Subtitle": "Büyüyen işletmeler için",
+  "pricingPlan2PriceMonthly": "349",
+  "pricingPlan2PriceYearly": "297",
+
+  "pricingPlan3Title": "Kurumsal",
+  "pricingPlan3Subtitle": "Büyük işletme ve zincirler için",
+  "pricingPlan3PriceMonthly": "599",
+  "pricingPlan3PriceYearly": "509",
+
+  "pricingFeature1": "✓ Sınırsız randevu",
+  "pricingFeature2": "✓ Takvim senkronizasyonu",
+  "pricingFeature3": "✓ Personel yönetimi",
+  "pricingFeature4": "✓ AI destekli ilk kurulum",
+  "pricingFeature5": "✓ API erişimi",
+
+  "pricingButtonStart": "Planı Seç",
+  "pricingButtonPro": "Hemen Başla",
+  "pricingButtonEnterprise": "Planı Seç",
+  
   // CTA bölümü
   "ctaTitle": "Hemen Başlayın",
   "ctaDescription": "Dijital dönüşümünüzü bugün başlatın ve işinizi büyütün. Timexia'nın gelişmiş randevu yönetimiyle müşterilerinize her zamankinden daha iyi hizmet verin.",

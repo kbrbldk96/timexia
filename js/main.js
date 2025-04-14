@@ -264,4 +264,47 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Timeline animasyonlarını başlat
   initTimelineAnimations();
+
+  /**
+   * Fiyatlandırma toggle'ı için işlevsellik
+   */
+  function initPricingToggle() {
+    const toggle = document.getElementById('pricing-switch');
+    if (!toggle) return;
+    
+    const monthlyPrices = document.querySelectorAll('.price.monthly');
+    const yearlyPrices = document.querySelectorAll('.price.yearly');
+    const monthlyText = document.querySelector('.pricing-toggle-text[data-period="monthly"]');
+    const yearlyText = document.querySelector('.pricing-toggle-text[data-period="yearly"]');
+    
+    toggle.addEventListener('change', function() {
+      if (this.checked) {
+        // Yıllık fiyatlar
+        monthlyPrices.forEach(el => el.classList.add('hidden'));
+        yearlyPrices.forEach(el => el.classList.remove('hidden'));
+        monthlyText.classList.remove('active');
+        yearlyText.classList.add('active');
+      } else {
+        // Aylık fiyatlar
+        yearlyPrices.forEach(el => el.classList.add('hidden'));
+        monthlyPrices.forEach(el => el.classList.remove('hidden'));
+        yearlyText.classList.remove('active');
+        monthlyText.classList.add('active');
+      }
+    });
+    
+    // Toggle text'lere tıklama
+    monthlyText.addEventListener('click', function() {
+      toggle.checked = false;
+      toggle.dispatchEvent(new Event('change'));
+    });
+    
+    yearlyText.addEventListener('click', function() {
+      toggle.checked = true;
+      toggle.dispatchEvent(new Event('change'));
+    });
+  }
+
+  // Fiyatlandırma toggle'ını başlat
+  initPricingToggle();
 });
