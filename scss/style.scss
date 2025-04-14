@@ -1,5 +1,8 @@
 // Main Sass File - Imports all partials
 
+// Önce değişkenleri import et
+@import "variables";
+
 // Base styles
 @import 'base/variables';
 @import 'base/reset';

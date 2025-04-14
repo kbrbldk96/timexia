@@ -241,27 +241,23 @@ document.addEventListener('DOMContentLoaded', () => {
     
     console.log('Timeline animasyonları başlatılıyor...', timelineItems.length);
     
-    const options = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.25 // Öğenin %25'i görünür olduğunda tetikle
-    };
-    
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('reveal');
+          // Görünür olduğunda sınıf ekle
+          entry.target.classList.add('is-visible');
           
-          // Öğe görünür hale geldikten sonra gözlemlemeyi durdur
+          // Bir kez göründükten sonra izlemeyi bırak
           observer.unobserve(entry.target);
         }
       });
-    }, options);
+    }, { 
+      threshold: 0.25,  // Ne kadarı görünür olduğunda tetiklenecek
+      rootMargin: '0px 0px -100px 0px'  // Alt kenardan 100px önce tetiklenecek
+    });
     
-    // Her bir timeline öğesini izle
-    timelineItems.forEach((item, index) => {
-      // Öğelere gecikme ekleyerek sırayla görünmelerini sağla
-      item.style.transitionDelay = `${index * 150}ms`;
+    // Her timeline öğesini izle
+    timelineItems.forEach(item => {
       observer.observe(item);
     });
   }

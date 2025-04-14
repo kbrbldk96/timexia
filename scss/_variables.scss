@@ -1,0 +1,53 @@
+// Renk değişkenleri
+$color-primary: #5f44f2; // Ana renk (mor)
+$color-secondary: #ff4081; // İkincil renk
+$color-white: #ffffff;
+$color-dark: #222222;
+$color-text: #444444;
+$color-text-light: #666666;
+$color-heading: #333333;
+$color-background: #f7f8fa;
+
+// Boşluk (spacing) değişkenleri
+$spacing-sm: 8px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+$spacing-xl: 32px;
+$spacing-2xl: 48px;
+$spacing-3xl: 64px;
+$spacing-4xl: 96px;
+
+// Yazı tipi değişkenleri
+$font-size-xs: 0.75rem;    // 12px
+$font-size-sm: 0.875rem;   // 14px
+$font-size-md: 1rem;       // 16px
+$font-size-lg: 1.125rem;   // 18px
+$font-size-xl: 1.25rem;    // 20px
+$font-size-2xl: 1.5rem;    // 24px
+$font-size-3xl: 2rem;      // 32px
+$font-size-4xl: 2.5rem;    // 40px
+
+// Font ağırlık değişkenleri
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// Breakpoint değişkenleri
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
+// Border değişkenleri
+$border-radius: 8px;
+$border-radius-lg: 12px;
+$border-radius-xl: 16px;
+
+// Gölge değişkenleri
+$shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+$shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+$shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+
+// Geçiş (transition) değişkenleri
+$transition: all 0.3s ease;
