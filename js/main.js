@@ -400,6 +400,99 @@ document.addEventListener('DOMContentLoaded', () => {
   initFaqAccordion();
 });
 
+// Sayfa yüklendiğinde menü linklerini düzenle
+document.addEventListener('DOMContentLoaded', function() {
+  setupMenuLinks();
+  
+  // Header sonradan yüklenirse de çalıştır
+  document.addEventListener('partialLoaded', function(e) {
+    if (e.detail === 'header') {
+      setupMenuLinks();
+    }
+  });
+});
+
+/**
+ * Menü linklerini düzenler ve sayfa durumuna göre işlevsellik ekler
+ */
+function setupMenuLinks() {
+  const isHomePage = window.location.pathname === '/' || 
+                    window.location.pathname.endsWith('index.html') || 
+                    window.location.pathname.endsWith('/');
+  
+  const menuLinks = document.querySelectorAll('.header__menu-link');
+  
+  // Sayfa yüklendikten sonra hash'i kontrol et ve uygun section'a kaydır
+  if (isHomePage && window.location.hash) {
+    scrollToSection(window.location.hash.substring(1));
+  }
+  
+  menuLinks.forEach(link => {
+    // API linki özel durum, her zaman api.html'e gitsin
+    if (link.getAttribute('data-section') === 'api') {
+      return;
+    }
+    
+    // İlgili section kimliğini al
+    const section = link.getAttribute('data-section');
+    
+    // Ana sayfadaysak ve anchor tıklanmışsa smooth scroll yap 
+    if (isHomePage && section) {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        scrollToSection(section);
+        
+        // Aktif menü öğesini güncelle
+        menuLinks.forEach(item => item.classList.remove('active'));
+        this.classList.add('active');
+      });
+    } 
+    // Ana sayfada değilsek, index.html#section formatında href kullan
+    else if (!isHomePage && section) {
+      link.href = `index.html#${section}`;
+    }
+  });
+}
+
+/**
+ * Belirtilen ID'ye sahip bölüme kaydırır
+ * @param {string} sectionId - Kaydırılacak bölümün ID'si
+ */
+function scrollToSection(sectionId) {
+  const targetSection = document.getElementById(sectionId);
+  if (!targetSection) return;
+  
+  // Mobil menüyü kapat
+  const mainNav = document.getElementById('main-nav');
+  const mobileToggle = document.getElementById('mobile-toggle');
+  if (mainNav && mobileToggle) {
+    mainNav.classList.remove('active');
+    mobileToggle.classList.remove('active');
+    document.body.style.overflow = '';
+    document.body.classList.remove('menu-open');
+  }
+  
+  // Header'ın yüksekliğini hesaba katarak smooth scroll yap
+  const headerHeight = document.querySelector('.header')?.offsetHeight || 0;
+  const targetOffset = targetSection.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+  
+  window.scrollTo({
+    top: targetOffset,
+    behavior: 'smooth'
+  });
+}
+
+// Sayfa yüklendikten sonra ve partiallar tamamen yüklendikten sonra hash kontrolü yapma
+window.addEventListener('load', function() {
+  if (window.location.hash) {
+    // Tüm içerik yüklendikten biraz sonra scroll et (header'ın tam olarak yüklenmesi için)
+    setTimeout(function() {
+      const sectionId = window.location.hash.substring(1);
+      scrollToSection(sectionId);
+    }, 300);
+  }
+});
+
 // Dokunmatik cihaz sorunu düzeltmesi
 document.addEventListener('DOMContentLoaded', function() {
   // Dokunmatik cihaz tespiti

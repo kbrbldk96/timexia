@@ -152,7 +152,7 @@ fetch('https://api.timexia.com/v1/appointments', {
                             <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
                                 <line x1="8" y1="21" x2="16" y2="21"></line>
-                                <line x1="12" y1="17" x2="12" y2="21"></line>
+                                <line x1="12" y1="17" x2="12.01" y2="18"></line>
                             </svg>
                         </div>
                         <h3 class="api-target-title">CRM Geliştiricileri</h3>
@@ -237,14 +237,15 @@ fetch('https://api.timexia.com/v1/appointments', {
                     </div>
                     
                     <div class="api-integration-image fade-in-up" data-delay="400">
-                        <div class="code-window">
+                        <div class="code-window mobile-responsive">
                             <div class="code-window-header">
                                 <span class="code-window-dot dot-red"></span>
                                 <span class="code-window-dot dot-yellow"></span>
                                 <span class="code-window-dot dot-green"></span>
                                 <span class="code-window-title">api_example.js</span>
                             </div>
-                            <pre class="code-window-content"><code>// Timexia API örnek kullanım
+                            <div class="code-window-scroll-wrapper">
+                                <pre class="code-window-content" style="white-space: pre; overflow-x: auto; width: 100%; max-width: 100%;"><code>// Timexia API örnek kullanım
 import { TimexiaClient } from 'timexia-api';
 
 // API istemcisini başlat
@@ -267,6 +268,7 @@ async function getAppointments() {
     console.error('Hata:', error.message);
   }
 }</code></pre>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -277,9 +279,7 @@ async function getAppointments() {
         <section class="api-cta">
             <div class="container">
                 <div class="api-cta-content fade-in-up">
-                    <h2 class="api-cta-title">Hemen API Entegrasyonuna Başlayın</h2>
-                    <p class="api-cta-description fade-in-up" data-delay="100">Dökümantasyon sayfamızda örnek kodlar, endpoint açıklamaları ve test ortamı detayları yer alır.</p>
-                    
+                    <h2 class="api-cta-title">Hemen API Entegrasyonuna Başlayın</h2> 
                     <div class="api-cta-button fade-in-up" data-delay="200">
                         <a href="#" class="btn btn-primary btn-lg">API Dökümantasyonunu İncele</a>
                     </div>
@@ -304,46 +304,43 @@ async function getAppointments() {
     <script src="js/include.js"></script>
     <script src="js/main.js"></script>
     <script>
-        // Sayfa yüklendiğinde FAQ bölümünü aktifleştir
+        // Sayfa yüklendiğinde kod vurgulama efektini aktifleştir
         document.addEventListener('DOMContentLoaded', function() {
-            // Code highlight efekti için basit bir animasyon
+            // Sadece hero bölümündeki kod bloğu için yazma efekti
             function typeCodeEffect() {
-                const codeBlocks = document.querySelectorAll('.code-block, .code-window-content');
+                const heroCodeBlock = document.querySelector('.api-hero-code .code-block');
+                if (!heroCodeBlock || heroCodeBlock.classList.contains('typed')) return;
                 
-                codeBlocks.forEach(block => {
-                    // Kod bloğu zaten görünür durumdaysa işlem yapma
-                    if (block.classList.contains('typed')) return;
-                    
-                    const code = block.innerHTML;
-                    block.innerHTML = '';
-                    block.classList.add('typed');
-                    
-                    let i = 0;
-                    const interval = setInterval(() => {
-                        if (i < code.length) {
-                            block.innerHTML += code.charAt(i);
-                            i++;
-                        } else {
-                            clearInterval(interval);
-                        }
-                    }, 5); // Süreyi çok kısa tutarak hızlı yazma efekti oluştur
-                });
+                const codeContent = heroCodeBlock.innerHTML;
+                heroCodeBlock.innerHTML = '';
+                heroCodeBlock.classList.add('typed');
+                
+                let i = 0;
+                const interval = setInterval(() => {
+                    if (i < codeContent.length) {
+                        heroCodeBlock.innerHTML += codeContent.charAt(i);
+                        i++;
+                    } else {
+                        clearInterval(interval);
+                    }
+                }, 5);
             }
             
-            // Observer ile kod bloklarını izle
+            // Gözlemci oluşturup sadece hero bölümündeki kod bloğunu izle
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        setTimeout(typeCodeEffect, 500); // Efekti biraz gecikmeli başlat
-                        observer.unobserve(entry.target); // Bir kere çalıştıktan sonra izlemeyi bırak
+                        setTimeout(typeCodeEffect, 500);
+                        observer.unobserve(entry.target);
                     }
                 });
             }, { threshold: 0.2 });
             
-            // Kod bloklarını izlemeye başla
-            document.querySelectorAll('.code-block, .code-window').forEach(block => {
-                observer.observe(block);
-            });
+            // Hero bölümündeki kod bloğunu izlemeye başla
+            const heroCodeBlock = document.querySelector('.api-hero-code .code-block');
+            if (heroCodeBlock) {
+                observer.observe(heroCodeBlock);
+            }
         });
     </script>
 </body>

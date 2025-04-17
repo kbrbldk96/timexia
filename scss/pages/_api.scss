@@ -185,10 +185,9 @@
     border-color: rgba($color-primary, 0.2);
     
     .api-feature-icon {
-      background-color: $color-primary;
       
       svg {
-        stroke: $color-white;
+        stroke: $color-primary;
       }
     }
   }
@@ -346,6 +345,19 @@
   padding: $spacing-3xl 0;
   background-color: $color-white;
   
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-2xl 0;
+  }
+  .container {
+    display: flex;
+    align-items: flex-start;
+    gap: $spacing-2xl;
+    
+    @media (max-width: $breakpoint-lg) {
+      flex-direction: column;
+    }
+  }
+  
   &-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -353,13 +365,31 @@
     align-items: center;
     
     @media (max-width: $breakpoint-lg) {
-      grid-template-columns: 1fr;
+      display: block;
+      width: 100%;
     }
   }
   
   &-text {
     @media (max-width: $breakpoint-lg) {
       text-align: center;
+      margin-bottom: $spacing-lg;
+    }
+    
+    .section-title {
+      @media (max-width: $breakpoint-md) {
+        font-size: $font-size-2xl;
+      }
+      
+      @media (max-width: $breakpoint-sm) {
+        font-size: $font-size-xl;
+      }
+    }
+    
+    .section-description {
+      @media (max-width: $breakpoint-md) {
+        font-size: $font-size-md;
+      }
     }
   }
   
@@ -367,6 +397,10 @@
     list-style: none;
     padding: 0;
     margin: $spacing-2xl 0 0 0;
+    
+    @media (max-width: $breakpoint-md) {
+      margin-top: $spacing-lg;
+    }
   }
   
   &-feature {
@@ -378,6 +412,7 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
+      margin-bottom: $spacing-xl;
     }
     
     &-icon {
@@ -407,12 +442,20 @@
         font-weight: $font-weight-semibold;
         margin-bottom: $spacing-sm;
         color: $color-heading;
+        
+        @media (max-width: $breakpoint-md) {
+          font-size: $font-size-md;
+        }
       }
       
       p {
         color: $color-text-light;
         line-height: 1.6;
         margin-bottom: 0;
+        
+        @media (max-width: $breakpoint-md) {
+          font-size: $font-size-sm;
+        }
       }
     }
   }
@@ -424,37 +467,44 @@
       overflow: hidden;
       box-shadow: $shadow-lg;
       
+      &.mobile-responsive {
+        width: 100%;
+        max-width: 100%;
+        
+        @media (max-width: $breakpoint-md) {
+          margin: 0 auto;
+        }
+      }
+      
       &-header {
         display: flex;
         align-items: center;
         background-color: #282a36;
         padding: $spacing-sm $spacing-md;
+        position: sticky;
+        top: 0;
+        z-index: 2;
+      }
+      
+      &-scroll-wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        position: relative;
+        width: 100%;
+        max-width: 100%;
         
-        .code-window-dot {
-          width: 12px;
-          height: 12px;
-          border-radius: 50%;
-          margin-right: 6px;
-          
-          &.dot-red {
-            background-color: #ff5f56;
-          }
-          
-          &.dot-yellow {
-            background-color: #ffbd2e;
-          }
-          
-          &.dot-green {
-            background-color: #27c93f;
-          }
+        &::-webkit-scrollbar {
+          height: 6px;
+          background-color: rgba(255, 255, 255, 0.05);
         }
         
-        .code-window-title {
-          color: #f8f8f2;
-          font-family: 'Fira Code', monospace;
-          font-size: 12px;
-          opacity: 0.7;
-          margin-left: $spacing-sm;
+        &::-webkit-scrollbar-thumb {
+          background-color: rgba(255, 255, 255, 0.1);
+          border-radius: 3px;
+        }
+        
+        &::-webkit-scrollbar-thumb:hover {
+          background-color: rgba(255, 255, 255, 0.2);
         }
       }
       
@@ -465,12 +515,22 @@
         font-size: 14px;
         line-height: 1.5;
         color: #f8f8f2;
-        overflow-x: auto;
+        min-width: min-content;
+        white-space: pre;
+        overflow-wrap: normal;
+        word-wrap: normal;
+        
+        @media (max-width: $breakpoint-md) {
+          font-size: 12px;
+          padding: $spacing-md;
+          white-space: pre;
+          tab-size: 2;
+        }
         
         code {
           display: block;
-          
-          // Stil eklemeleri burada
+          white-space: inherit;
+          width: auto;
         }
       }
     }
@@ -618,6 +678,12 @@
   
   &.typed:after {
     display: none;
+  }
+  
+  &.typed {
+    white-space: pre;
+    overflow-x: auto;
+    width: 100%;
   }
 }
 
