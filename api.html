@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timexia API | Randevu Sistemi Entegrasyonu</title>
+    <meta name="description" content="Timexia API ile kendi sistemlerinize güçlü randevu altyapısını entegre edin.">
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/favicon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="images/favicon/site.webmanifest">
+    <link rel="mask-icon" href="images/favicon/safari-pinned-tab.svg" color="#5f44f2">
+    <meta name="msapplication-TileColor" content="#5f44f2">
+    <meta name="theme-color" content="#ffffff">
+    
+    <!-- Fontlar -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Stil Dosyası -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="api">
+    <!-- Loader -->
+    <div class="loader-container" id="loader">
+        <div class="loader">
+            <img src="images/favicon/icon_favicon.png" alt="Yükleniyor...">
+        </div>
+    </div>
+    
+    <!-- Header -->
+    <div data-include="header"></div>
+
+    <main>
+        <!-- Hero Bölümü -->
+        <section class="api-hero">
+            <div class="container">
+                <div class="api-hero-content">
+                    <h1 class="api-hero-title fade-in-up">Timexia API ile Kendi Sisteminizde Güçlü Randevu Altyapısı</h1>
+                    <p class="api-hero-description fade-in-up" data-delay="100">Timexia'nın geliştirici dostu API'si ile randevu sistemini kendi platformunuza entegre edin.</p>
+                    <div class="api-hero-cta fade-in-up" data-delay="200">
+                        <a href="#" class="btn btn-primary btn-lg">Dökümantasyona Git</a>
+                    </div>
+                </div>
+                <div class="api-hero-code fade-in-up" data-delay="300">
+                    <pre class="code-block"><code>// Randevu oluşturma API çağrısı
+fetch('https://api.timexia.com/v1/appointments', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer YOUR_API_KEY'
+  },
+  body: JSON.stringify({
+    customer_id: '12345',
+    service_id: '789',
+    staff_id: '456',
+    date: '2023-08-15',
+    time: '14:30',
+    duration: 60
+  })
+})
+.then(response => response.json())
+.then(data => console.log(data));</code></pre>
+                </div>
+            </div>
+            <div class="api-hero-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+            </div>
+        </section>
+
+        <!-- Neler Yapabilirsiniz Bölümü -->
+        <section class="api-features">
+            <div class="container">
+                <div class="section-header text-center fade-in-up">
+                    <h2 class="section-title">Neler Yapabilirsiniz?</h2>
+                    <p class="section-description">Timexia API ile tüm randevu işlemlerinizi kendi sisteminizden yönetin</p>
+                </div>
+                
+                <div class="api-features-grid">
+                    <div class="api-feature-card fade-in-up" data-delay="100">
+                        <div class="api-feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                                <path d="M8 14h.01"></path>
+                                <path d="M12 14h.01"></path>
+                                <path d="M16 14h.01"></path>
+                                <path d="M8 18h.01"></path>
+                                <path d="M12 18h.01"></path>
+                                <path d="M16 18h.01"></path>
+                            </svg>
+                        </div>
+                        <h3 class="api-feature-title">Randevu Oluşturma ve İptal</h3>
+                        <p class="api-feature-description">API ile randevuları programlayın, güncelleyin veya iptal edin. Tüm durum değişiklikleri anlık olarak sisteme yansır.</p>
+                    </div>
+                    
+                    <div class="api-feature-card fade-in-up" data-delay="200">
+                        <div class="api-feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                        </div>
+                        <h3 class="api-feature-title">Çalışan Listesi Yönetimi</h3>
+                        <p class="api-feature-description">Personel bilgilerini güncelleyin, çalışma saatlerini değiştirin ve izin günlerini API üzerinden yönetin.</p>
+                    </div>
+                    
+                    <div class="api-feature-card fade-in-up" data-delay="300">
+                        <div class="api-feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                            </svg>
+                        </div>
+                        <h3 class="api-feature-title">Takvim Senkronizasyonu</h3>
+                        <p class="api-feature-description">Google, Microsoft ve Apple takvimlerle çift yönlü senkronizasyon yapın. Değişiklikler otomatik olarak tüm sistemlere yansır.</p>
+                    </div>
+                    
+                    <div class="api-feature-card fade-in-up" data-delay="400">
+                        <div class="api-feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"></path>
+                            </svg>
+                        </div>
+                        <h3 class="api-feature-title">Kullanıcı ve Şube Kontrolü</h3>
+                        <p class="api-feature-description">Kullanıcı yetkilendirmelerini, şube ayarlarını ve hizmet tanımlarını tek bir API ile kontrol edin.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Kimler İçin Uygun Bölümü -->
+        <section class="api-target">
+            <div class="container">
+                <div class="section-header text-center fade-in-up">
+                    <h2 class="section-title">API'miz Kimler İçin Uygun?</h2>
+                    <p class="section-description">Timexia API, çeşitli uygulamalar ve sistemler için güçlü bir randevu entegrasyonu sağlar</p>
+                </div>
+                
+                <div class="api-target-wrapper fade-in-up" data-delay="100">
+                    <div class="api-target-item">
+                        <div class="api-target-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                <line x1="8" y1="21" x2="16" y2="21"></line>
+                                <line x1="12" y1="17" x2="12" y2="21"></line>
+                            </svg>
+                        </div>
+                        <h3 class="api-target-title">CRM Geliştiricileri</h3>
+                        <p class="api-target-description">Mevcut CRM çözümünüze randevu modülü ekleyerek müşteri deneyimini zenginleştirin.</p>
+                    </div>
+                    
+                    <div class="api-target-item">
+                        <div class="api-target-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                                <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                            </svg>
+                        </div>
+                        <h3 class="api-target-title">Mobil Uygulama Üreticileri</h3>
+                        <p class="api-target-description">Mobil uygulamanıza entegre ederek kullanıcılarınıza randevu alma kolaylığı sağlayın.</p>
+                    </div>
+                    
+                    <div class="api-target-item">
+                        <div class="api-target-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                                <polyline points="2 17 12 22 22 17"></polyline>
+                                <polyline points="2 12 12 17 22 12"></polyline>
+                            </svg>
+                        </div>
+                        <h3 class="api-target-title">SaaS Firmaları</h3>
+                        <p class="api-target-description">Platformunuza randevu yönetimi ekleyerek müşterilerinize daha kapsamlı çözümler sunun.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="api-target-shapes">
+                <div class="shape shape-dots"></div>
+                <div class="shape shape-circle"></div>
+            </div>
+        </section>
+        
+        <!-- Entegrasyon Kolaylığı Bölümü -->
+        <section class="api-integration">
+            <div class="container">
+                <div class="api-integration-content">
+                    <div class="api-integration-text fade-in-up">
+                        <h2 class="section-title">Dakikalar İçinde Entegre Edin</h2>
+                        <p class="section-description">Geliştirici dostu API, hızlı ve kolay entegrasyon için tasarlandı</p>
+                        
+                        <ul class="api-integration-features">
+                            <li class="api-integration-feature fade-in-up" data-delay="100">
+                                <div class="api-integration-feature-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                </div>
+                                <div class="api-integration-feature-text">
+                                    <h3>JSON Tabanlı REST API</h3>
+                                    <p>Kolay anlaşılır yapı ile tüm yaygın programlama dillerinde kullanılabilir</p>
+                                </div>
+                            </li>
+                            
+                            <li class="api-integration-feature fade-in-up" data-delay="200">
+                                <div class="api-integration-feature-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                </div>
+                                <div class="api-integration-feature-text">
+                                    <h3>Detaylı Dökümantasyon</h3>
+                                    <p>Örnek kodlar, endpoint açıklamaları ve test ortamı ile hızlı başlangıç</p>
+                                </div>
+                            </li>
+                            
+                            <li class="api-integration-feature fade-in-up" data-delay="300">
+                                <div class="api-integration-feature-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                </div>
+                                <div class="api-integration-feature-text">
+                                    <h3>JWT ile Güvenli Kimlik Doğrulama</h3>
+                                    <p>Modern ve güvenli erişim yönetimi ile verileriniz tam koruma altında</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="api-integration-image fade-in-up" data-delay="400">
+                        <div class="code-window">
+                            <div class="code-window-header">
+                                <span class="code-window-dot dot-red"></span>
+                                <span class="code-window-dot dot-yellow"></span>
+                                <span class="code-window-dot dot-green"></span>
+                                <span class="code-window-title">api_example.js</span>
+                            </div>
+                            <pre class="code-window-content"><code>// Timexia API örnek kullanım
+import { TimexiaClient } from 'timexia-api';
+
+// API istemcisini başlat
+const client = new TimexiaClient({
+  apiKey: 'YOUR_API_KEY',
+  environment: 'production'
+});
+
+// Randevuları listele
+async function getAppointments() {
+  try {
+    const appointments = await client.appointments.list({
+      start_date: '2023-08-01',
+      end_date: '2023-08-31',
+      status: 'confirmed'
+    });
+    
+    return appointments;
+  } catch (error) {
+    console.error('Hata:', error.message);
+  }
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- CTA Bölümü -->
+        <section class="api-cta">
+            <div class="container">
+                <div class="api-cta-content fade-in-up">
+                    <h2 class="api-cta-title">Hemen API Entegrasyonuna Başlayın</h2>
+                    <p class="api-cta-description fade-in-up" data-delay="100">Dökümantasyon sayfamızda örnek kodlar, endpoint açıklamaları ve test ortamı detayları yer alır.</p>
+                    
+                    <div class="api-cta-button fade-in-up" data-delay="200">
+                        <a href="#" class="btn btn-primary btn-lg">API Dökümantasyonunu İncele</a>
+                    </div>
+                    
+                    <div class="api-cta-info fade-in-up" data-delay="300">
+                        <p>Sorunuz mu var? <a href="contact.html">Teknik ekibimizle iletişime geçin</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="api-cta-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <div data-include="footer"></div>
+
+    <!-- JavaScript -->
+    <script src="js/language.js" type="module"></script>
+    <script src="js/include.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Sayfa yüklendiğinde FAQ bölümünü aktifleştir
+        document.addEventListener('DOMContentLoaded', function() {
+            // Code highlight efekti için basit bir animasyon
+            function typeCodeEffect() {
+                const codeBlocks = document.querySelectorAll('.code-block, .code-window-content');
+                
+                codeBlocks.forEach(block => {
+                    // Kod bloğu zaten görünür durumdaysa işlem yapma
+                    if (block.classList.contains('typed')) return;
+                    
+                    const code = block.innerHTML;
+                    block.innerHTML = '';
+                    block.classList.add('typed');
+                    
+                    let i = 0;
+                    const interval = setInterval(() => {
+                        if (i < code.length) {
+                            block.innerHTML += code.charAt(i);
+                            i++;
+                        } else {
+                            clearInterval(interval);
+                        }
+                    }, 5); // Süreyi çok kısa tutarak hızlı yazma efekti oluştur
+                });
+            }
+            
+            // Observer ile kod bloklarını izle
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        setTimeout(typeCodeEffect, 500); // Efekti biraz gecikmeli başlat
+                        observer.unobserve(entry.target); // Bir kere çalıştıktan sonra izlemeyi bırak
+                    }
+                });
+            }, { threshold: 0.2 });
+            
+            // Kod bloklarını izlemeye başla
+            document.querySelectorAll('.code-block, .code-window').forEach(block => {
+                observer.observe(block);
+            });
+        });
+    </script>
+</body>
+</html>
