@@ -168,6 +168,12 @@
         }
       }
       
+      // Aktif durumu daha belirgin yapmak için
+      &.active {
+        font-weight: $font-weight-semibold;
+        color: $color-primary;
+      }
+      
       @media (max-width: $breakpoint-md) {
         font-size: $font-size-lg;
       }

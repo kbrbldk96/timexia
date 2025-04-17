@@ -911,6 +911,106 @@
             margin-bottom: 0;
         }
     </style>
+    
+    <script>
+        // Sayfa tam yüklendikten sonra çalışacak fonksiyon
+        document.addEventListener('DOMContentLoaded', function() {
+            // Sayfanın tüm partialları (header dahil) yüklendikten sonra
+            window.addEventListener('load', function() {
+                // IntersectionObserver'ı bir kere oluştur
+                initNavHighlighter();
+                
+                // Menü linklerini güncelle
+                updateMenuLinks();
+            });
+            
+            // Menü bağlantılarını güncelleyen fonksiyon
+            function updateMenuLinks() {
+                const menuLinks = document.querySelectorAll('.header__menu-link');
+                if (!menuLinks.length) return;
+                
+                menuLinks.forEach(link => {
+                    // Mevcut click event listener'ları kaldır
+                    const oldLink = link.cloneNode(true);
+                    link.parentNode.replaceChild(oldLink, link);
+                    
+                    // Yeni click event ekle
+                    oldLink.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        
+                        // Sayfadaki hash'i güncelle
+                        const targetId = this.getAttribute('href').substring(1);
+                        
+                        // Aktif menü öğesi işaretlemesini güncelle
+                        menuLinks.forEach(ml => ml.classList.remove('active'));
+                        this.classList.add('active');
+                        
+                        // İlgili section'a scroll et
+                        const targetSection = document.getElementById(targetId);
+                        if (targetSection) {
+                            // Mobil menüyü kapat
+                            const mainNav = document.getElementById('main-nav');
+                            const mobileToggle = document.getElementById('mobile-toggle');
+                            if (mainNav && mobileToggle) {
+                                mainNav.classList.remove('active');
+                                mobileToggle.classList.remove('active');
+                                document.body.style.overflow = '';
+                                document.body.classList.remove('menu-open');
+                            }
+                            
+                            // Smooth scroll - header yüksekliğini hesaba katarak
+                            const headerHeight = document.querySelector('.header')?.offsetHeight || 0;
+                            const targetOffset = targetSection.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                            
+                            window.scrollTo({
+                                top: targetOffset,
+                                behavior: 'smooth'
+                            });
+                        }
+                    });
+                });
+            }
+            
+            // IntersectionObserver ile görünür section'ları takip eden fonksiyon
+            function initNavHighlighter() {
+                const sections = document.querySelectorAll('section[id]');
+                if (!sections.length) return;
+                
+                // IntersectionObserver options
+                const options = {
+                    root: null, // viewport kullan
+                    rootMargin: '-20% 0px -70% 0px', // section'ın üst %20'si görünür olduğunda tetikle
+                    threshold: 0 // herhangi bir kısmı görünür olduğunda tetikle
+                };
+                
+                const observer = new IntersectionObserver(entries => {
+                    entries.forEach(entry => {
+                        // Eğer section görünürse
+                        if (entry.isIntersecting) {
+                            const sectionId = entry.target.getAttribute('id');
+                            
+                            // İlgili menü linkini bul ve active yap
+                            const correspondingLink = document.querySelector(`.header__menu-link[href="#${sectionId}"]`);
+                            if (correspondingLink) {
+                                // Tüm menü linklerinden active class'ını kaldır
+                                document.querySelectorAll('.header__menu-link').forEach(link => {
+                                    link.classList.remove('active');
+                                });
+                                
+                                // Bu linke active class'ı ekle
+                                correspondingLink.classList.add('active');
+                            }
+                        }
+                    });
+                }, options);
+                
+                // Her section'ı izlemeye başla
+                sections.forEach(section => {
+                    observer.observe(section);
+                });
+            }
+        });
+    </script>
 </body>
 </html>
 
