@@ -53,7 +53,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
   
-  // Modern navigation toggle - Düzeltilmiş menü işlevselliği
+  // Modern navigation toggle - Artık mobile-nav.js içinde yer aldığından çakışma olmaması için kaldırılıyor
+  /*
   const mobileToggle = document.getElementById('mobile-toggle');
   const mainNav = document.getElementById('main-nav');
   
@@ -82,7 +83,8 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
-  
+  */
+
   // Active link class
   const setActiveLink = () => {
     const currentPath = window.location.pathname;
@@ -528,4 +530,58 @@ document.addEventListener('DOMContentLoaded', function() {
   // Sayfa yüklendikten sonra ve pencere boyutunu değiştirdiğimizde kontrol et
   window.addEventListener('load', checkOverflow);
   window.addEventListener('resize', checkOverflow);
+});
+
+/**
+ * Mobil menü işlevselliğini iyileştiren fonksiyon
+ */
+function enhanceMobileMenu() {
+  const mobileToggle = document.getElementById('mobile-toggle');
+  const mainNav = document.getElementById('main-nav');
+  
+  if (!mobileToggle || !mainNav) return;
+  
+  // Önce mevcut event listener'ları temizle
+  const newMobileToggle = mobileToggle.cloneNode(true);
+  mobileToggle.parentNode.replaceChild(newMobileToggle, mobileToggle);
+  
+  // Click event için yeni listener ekle - capture true ile
+  newMobileToggle.addEventListener('click', handleMobileToggleClick, true);
+  
+  // Touch event için listener ekle - iOS için
+  newMobileToggle.addEventListener('touchend', handleMobileToggleClick, {
+    passive: false,
+    capture: true
+  });
+  
+  function handleMobileToggleClick(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    console.log('Mobile toggle clicked'); // Debug için
+    
+    // Menü durumunu değiştir
+    mainNav.classList.toggle('active');
+    newMobileToggle.classList.toggle('active');
+    document.body.classList.toggle('menu-open');
+    
+    // Scroll engelleme
+    if (mainNav.classList.contains('active')) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+  }
+}
+
+// Sayfa yüklendikten sonra çalıştır
+document.addEventListener('DOMContentLoaded', function() {
+  enhanceMobileMenu();
+  
+  // Header parçası yüklendikten sonra da çalıştır
+  document.addEventListener('partialLoaded', function(e) {
+    if (e.detail === 'header') {
+      setTimeout(enhanceMobileMenu, 100);
+    }
+  });
 });

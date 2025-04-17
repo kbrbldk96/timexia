@@ -626,77 +626,16 @@
     <!-- JavaScript -->
     <script src="js/language.js" type="module"></script>
     <script src="js/include.js"></script>
+    <script src="js/mobile-nav.js"></script>
     <script src="js/main.js"></script>
     <!-- Swiper.js JavaScript -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
         // Ana DOMContentLoaded event'i - tek bir event kullanıyoruz
         document.addEventListener('DOMContentLoaded', function() {
-            // Header yüklendikten sonra mobil menü işlevselliğini aktifleştir
-            document.addEventListener('partialLoaded', function(e) {
-                if (e.detail === 'header') {
-                    setTimeout(initMobileMenu, 100); // Küçük bir gecikme ekleyelim
-                }
-            });
+            // Sayfa içi JavaScript
+            // initMobileMenu fonksiyonu kaldırıldı - artık mobile-nav.js içinde
 
-            // Eğer header zaten yüklenmiş olabilir - kontrol edelim
-            if (document.getElementById('mobile-toggle') && document.getElementById('main-nav')) {
-                initMobileMenu();
-            }
-
-            // Mobil menü işlevselliğini başlatan fonksiyon
-            function initMobileMenu() {
-                const mobileToggle = document.getElementById('mobile-toggle');
-                const mainNav = document.getElementById('main-nav');
-                
-                if (!mobileToggle || !mainNav) {
-                    console.error('Mobil menü elemanları bulunamadı!');
-                    return;
-                }
-                
-                // Eski listener'ları temizle
-                mobileToggle.removeEventListener('click', handleMobileToggle);
-                mobileToggle.removeEventListener('touchend', handleMobileToggle);
-                
-                // Yeni listener'ları ekle
-                mobileToggle.addEventListener('click', handleMobileToggle, true);
-                mobileToggle.addEventListener('touchend', handleMobileToggle, true);
-                
-                // Menü içindeki linklere tıklayınca menüyü kapat
-                const menuLinks = mainNav.querySelectorAll('a');
-                menuLinks.forEach(link => {
-                    link.addEventListener('click', closeMenu);
-                });
-                
-                // Tıklama işleme fonksiyonu - global değişken kullanmadan
-                function handleMobileToggle(e) {
-                    e.preventDefault();
-                    if (e.type === 'touchend') {
-                        e.stopPropagation(); // Touch event'leri için propagasyonu durdur
-                    }
-                    
-                    toggleMenu();
-                }
-                
-                // Menüyü açıp kapatan fonksiyon
-                function toggleMenu() {
-                    mobileToggle.classList.toggle('active');
-                    mainNav.classList.toggle('active');
-                    document.body.classList.toggle('menu-open');
-                    
-                    // Menü açık olduğunda scroll'u engelle
-                    document.body.style.overflow = mainNav.classList.contains('active') ? 'hidden' : '';
-                }
-                
-                // Menüyü kapatma fonksiyonu
-                function closeMenu() {
-                    mobileToggle.classList.remove('active');
-                    mainNav.classList.remove('active');
-                    document.body.classList.remove('menu-open');
-                    document.body.style.overflow = '';
-                }
-            }
-            
             // Swiper ve diğer kodlar aynen devam ediyor...
             // Mobil cihazlarda dokunma olayını düzgün işlemek için yardımcı fonksiyon
             function preventBodyScroll(event) {

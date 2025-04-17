@@ -1,0 +1,88 @@
+// Mobil menü butonunu düzeltme
+
+.header__mobile-toggle {
+  // Daha geniş tıklanabilir alan
+  padding: 20px;
+  margin: -20px;
+  position: relative;
+  z-index: 2000;
+  cursor: pointer;
+  
+  // Dokunmatik cihazlar için iyileştirmeler
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  
+  // Buton çubuklarını daha belirgin yap
+  &-bar {
+    height: 3px !important;
+    width: 30px !important;
+    background-color: $color-dark !important;
+    transition: all 0.3s ease !important;
+    
+    // Safari için özel düzeltme
+    @media not all and (min-resolution:.001dpcm) {
+      @supports (-webkit-appearance:none) {
+        transition-duration: 0.01ms !important;
+      }
+    }
+  }
+  
+  // Aktif durum iyileştirmesi
+  &.active {
+    .header__mobile-toggle-bar {
+      &:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px) !important;
+      }
+      &:nth-child(2) {
+        opacity: 0 !important;
+      }
+      &:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px) !important;
+      }
+    }
+  }
+  
+  // iOS için özel düzeltme
+  @supports (-webkit-touch-callout: none) {
+    // iOS'ta overflow ve tıklama sorunları için düzeltme
+    padding: 25px;
+    margin: -25px;
+  }
+}
+
+// Menü açıldığında arkaplan overlay'i
+body.menu-open::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+// Mobil menü dropdown animasyonu düzeltme
+.header__nav {
+  @media (max-width: 768px) {
+    // Daha hızlı animasyon
+    transition: right 0.3s cubic-bezier(0.23, 1, 0.32, 1) !important;
+    
+    // iOS ve Android için tıklama alanı iyileştirmesi
+    .header__menu-link, 
+    .header__auth-link,
+    .header__auth-button {
+      padding: 15px !important;
+      margin: -5px !important;
+      display: inline-block !important;
+    }
+  }
+}
+
+// Menü açıkken overflow sorunu düzeltme
+body.menu-open {
+  overflow: hidden !important;
+  position: fixed !important;
+  width: 100% !important;
+  height: 100% !important;
+}
