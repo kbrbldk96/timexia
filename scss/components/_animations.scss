@@ -1,15 +1,22 @@
 // Animation Styles - Kaydırma (Scroll) Animasyonları
 
-// Fade-in-up animasyonu
+// Fade-in-up animasyonu - Önizleme sorununu çözmek için güncellendi
 .fade-in-up {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease, transform 0.6s ease; // Süreyi 0.8s'den 0.6s'ye düşürdük
+  // Sayfanın önizleme sorununu çözmek için başlangıçta görünür olacak şekilde ayarlandı
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease, transform 0.6s ease;
   transition-delay: var(--delay, 0ms);
   
-  &.visible {
-    opacity: 1;
-    transform: translateY(0);
+  // JavaScript çalıştığında animasyonları etkinleştirmek için
+  body.js-enabled & {
+    opacity: 0;
+    transform: translateY(30px);
+    
+    &.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
 

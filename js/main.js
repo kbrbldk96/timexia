@@ -585,3 +585,54 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+
+/**
+ * Sayfa yüklendikten sonra animasyonları başlatır
+ */
+function initAnimations() {
+  // JS aktif olduğunu belirtmek için body'ye sınıf ekle
+  document.body.classList.add('js-enabled');
+  
+  // Fade-in-up animasyonlarını başlat
+  const animatedElements = document.querySelectorAll('.fade-in-up');
+  
+  // IntersectionObserver ayarları
+  const options = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1
+  };
+  
+  // IntersectionObserver ile scroll animasyonlarını yönet
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target); // Bir kere görünür olunca izlemeyi bırak
+      }
+    });
+  }, options);
+  
+  // Her animasyonlu elementi gözlemle
+  animatedElements.forEach(element => {
+    observer.observe(element);
+  });
+  
+  // Sayfa yüklendiğinde ekranda görünen elementleri hemen göster
+  setTimeout(() => {
+    animatedElements.forEach(element => {
+      const rect = element.getBoundingClientRect();
+      if (rect.top <= window.innerHeight) {
+        element.classList.add('visible');
+      }
+    });
+  }, 100);
+}
+
+// Sayfa yüklendiğinde animasyonları başlat
+document.addEventListener('DOMContentLoaded', function() {
+  // ...existing code...
+  
+  // Animasyonları başlat
+  initAnimations();
+});

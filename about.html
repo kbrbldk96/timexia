@@ -3,62 +3,229 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hakkımızda | Timexia</title>
-    <meta name="description" content="Timexia hakkında daha fazla bilgi edinin ve bizimle iletişime geçin.">
+    <title>Timexia API | Randevu Sistemi Entegrasyonu</title>
+    <meta name="description" content="Timexia API ile kendi sistemlerinize güçlü randevu altyapısını entegre edin.">
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/favicon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="images/favicon/site.webmanifest">
+    <link rel="mask-icon" href="images/favicon/safari-pinned-tab.svg" color="#5f44f2">
+    <meta name="msapplication-TileColor" content="#5f44f2">
+    <meta name="theme-color" content="#ffffff">
     
     <!-- Fontlar -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     
     <!-- Stil Dosyası -->
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- Sayfa yüklenene kadar animasyonları gizleme sorunu için geçici stil -->
+    <style>
+        /* Sayfa yüklenme anında içeriklerin görünmeme sorununu önlemek için */
+        .fade-in-up {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+        
+        /* JavaScript yüklenince bu stil geçersiz olacak */
+        body.js-enabled .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        body.js-enabled .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
 <body data-page="about">
     <!-- Header -->
     <div data-include="header"></div>
 
     <main>
-        <section class="page-header">
+        <!-- Hero Section -->
+        <section class="about-hero">
             <div class="container">
-                <h1 class="page-title">Hakkımızda</h1>
-                <p class="page-description">Timexia'nın hikayesi ve misyonu</p>
+                <div class="about-hero-content">
+                    <h1 class="about-hero-title fade-in-up">Zamanı Yönetmenin Yeni Yolu</h1>
+                    <p class="about-hero-description fade-in-up" data-delay="100">
+                        Timexia, randevu süreçlerini dijitalleştirmek isteyen işletmeler için tasarlanmış modern bir çözümdür.
+                    </p>
+                    <div class="about-hero-cta fade-in-up" data-delay="200">
+                        <button onclick="scrollToStory()" class="btn btn-primary" id="story-button">Timexia'nın Hikayesi</button>
+                    </div>
+                </div>
+                <div class="about-hero-image fade-in-up" data-delay="300">
+                    <div class="hero-illustration">
+                        <img src="images/assets/2.png" alt="Timexia">
+                    </div>
+                </div>
             </div>
+            
+            <!-- Arka plan desenleri -->
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
         </section>
 
-        <section class="about-section">
+        <!-- Biz Kimiz? Section -->
+        <section class="about-section" id="our-story">
             <div class="container">
+                <div class="section-header text-center fade-in-up">
+                    <h2 class="section-title">Biz Kimiz?</h2>
+                </div>
+                
                 <div class="about-content">
-                    <div class="about-text">
-                        <h2>Biz Kimiz?</h2>
+                    <div class="about-text fade-in-up" data-delay="100">
                         <p>
                             Timexia, bireysel hizmet sağlayıcılar ve küçük işletmelerin dijital dönüşümünü desteklemek amacıyla kurulmuş bir girişimdir. 
                             Amacımız, randevu teknolojisini herkes için erişilebilir kılmak ve işletmelerin müşterileriyle olan ilişkilerini güçlendirmektir.
                         </p>
-                        
+                        <p>
+                            Her ölçekteki işletmeye uygun, kullanımı kolay çözümler sunarak iş süreçlerini optimize etmeyi ve müşteri memnuniyetini artırmayı hedefliyoruz.
+                            Zamandan tasarruf ettiren, verimi artıran ve işletmelerin dijital varlığını güçlendiren bir platform olmak için çalışıyoruz.
+                        </p>
+                    </div>
+                    
+                    <div class="about-image fade-in-up" data-delay="200">
+                        <img src="images/about-image.jpg" alt="Timexia Ekibi" onerror="this.src='images/assets/1.png'; this.onerror=null;">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Neden Timexia? Section -->
+        <section class="why-section">
+            <div class="container">
+                <div class="section-header text-center fade-in-up">
+                    <h2 class="section-title">Neden Timexia?</h2>
+                    <p class="section-description">Müşterilerimize sunduğumuz değerler</p>
+                </div>
+                
+                <div class="why-reasons fade-in-up" data-delay="100">
+                    <div class="why-reason-item">
+                        <div class="why-reason-icon">
+                            <span class="emoji-icon">⏱️</span>
+                        </div>
+                        <div class="why-reason-content">
+                            <h3>Zaman Kaybını Önlemek</h3>
+                            <p>Manuel randevu süreçleriyle kaybedilen zamanı minimize ediyoruz. Otomatik hatırlatmalar, kolay takvim yönetimi ve tek tıkla randevu oluşturma özellikleriyle zamandan tasarruf sağlıyoruz.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="why-reason-item">
+                        <div class="why-reason-icon">
+                            <span class="emoji-icon">💡</span>
+                        </div>
+                        <div class="why-reason-content">
+                            <h3>Teknolojiyi Erişilebilir Kılmak</h3>
+                            <p>Gelişmiş teknolojiler kullanarak oluşturduğumuz platformu, teknik bilgisi sınırlı olan kullanıcılar için bile anlaşılabilir ve kullanımı kolay hale getiriyoruz.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="why-reason-item">
+                        <div class="why-reason-icon">
+                            <span class="emoji-icon">🌍</span>
+                        </div>
+                        <div class="why-reason-content">
+                            <h3>İşletmeleri Dijitalleştirmek</h3>
+                            <p>Küçük ve orta ölçekli işletmelerin dijital dönüşümünü hızlandırarak, rekabet güçlerini artırıyor ve müşteri deneyimlerini iyileştiriyoruz.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Arka plan deseni -->
+            <div class="shape shape-dots"></div>
+        </section>
+
+        <!-- Değerler Section -->
+        <section class="values-section">
+            <div class="container">
+                <div class="section-header text-center fade-in-up">
+                    <h2 class="section-title">Değerlerimiz</h2>
+                    <p class="section-description">Bizi biz yapan temel prensipler</p>
+                </div>
+                
+                <div class="values-grid fade-in-up" data-delay="100">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="value-title">Güven</h3>
+                        <p class="value-description">Kullanıcılarımızın güvenini en değerli varlığımız olarak görüyor, veri güvenliği ve şeffaflık ilkelerine sıkı sıkıya bağlı kalıyoruz.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                                <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                                <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                            </svg>
+                        </div>
+                        <h3 class="value-title">Esneklik</h3>
+                        <p class="value-description">Her işletmenin ihtiyaçlarının benzersiz olduğunu biliyor, çözümlerimizi farklı sektörlere ve işletme ölçeklerine uyarlanabilir şekilde tasarlıyoruz.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="2" y1="12" x2="22" y2="12"></line>
+                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="value-title">Yerelleşme</h3>
+                        <p class="value-description">Yerel işletmeleri destekliyor, platformumuzu farklı dillerde ve yerel ihtiyaçlara uygun özelliklerle sunarak, müşterilerimize kendi bölgelerinde rekabet avantajı sağlıyoruz.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Vizyon & Misyon Section -->
+        <section class="vision-mission-section">
+            <div class="container">
+                <div class="vision-mission-wrapper fade-in-up">
+                    <div class="mission-block">
                         <h2>Misyonumuz</h2>
                         <p>
                             Kullanımı kolay, güvenilir ve uygun maliyetli bir randevu sistemi sunarak küçük işletmelerin dijital varlıklarını güçlendirmek ve 
                             müşteri deneyimini iyileştirmektir. Her işletmenin kendine özel bir dijital kimlik oluşturmasına yardımcı olmayı hedefliyoruz.
                         </p>
-                        
+                    </div>
+                    
+                    <div class="vision-block">
                         <h2>Vizyonumuz</h2>
                         <p>
                             Randevu yönetiminde sektör lideri olmak ve tüm dünyada milyonlarca küçük işletmeye hizmet vererek 
                             onların büyümelerine ve başarılı olmalarına katkıda bulunmak.
                         </p>
                     </div>
-                    
-                    <div class="about-image">
-                        <img src="images/about-image.jpg" alt="Timexia Ekibi">
-                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Kimly Technology Section -->
+        <section class="kimly-section">
+            <div class="container">
+                <div class="kimly-content text-center fade-in-up">
+                    <p>Bu proje <a href="https://kimlytechnology.com" target="_blank" rel="noopener noreferrer" class="kimly-link">Kimly Technology</a>'nin hayal gücüyle tasarlandı.</p>
                 </div>
             </div>
         </section>
 
         <section class="contact-section">
             <div class="container">
-                <div class="section-header">
+                <div class="section-header text-center">
                     <h2 class="section-title">İletişim</h2>
                     <p class="section-description">Sorularınız için bize ulaşın</p>
                 </div>
@@ -117,5 +284,27 @@
     <script src="js/include.js"></script>
     <script src="js/mobile-nav.js"></script>
     <script src="js/main.js"></script>
+    
+    <!-- Animasyon problemi için fallback script -->
+    <script>
+        // Basit scroll fonksiyonu
+        function scrollToStory() {
+            const targetElement = document.getElementById('our-story');
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'auto' });
+            }
+        }
+    
+        // Sayfa yüklendikten sonra, eğer animasyonlar hala görünmüyorsa zorla göster
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.querySelectorAll('.fade-in-up').forEach(function(el) {
+                    el.classList.add('visible');
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                });
+            }, 500);
+        });
+    </script>
 </body>
 </html>
