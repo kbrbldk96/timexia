@@ -626,27 +626,75 @@
     <!-- JavaScript -->
     <script src="js/language.js" type="module"></script>
     <script src="js/include.js"></script>
+    <!-- Mobil menü kodunu önce yükleyelim -->
     <script src="js/mobile-nav.js"></script>
+    <!-- Ana script en son yüklensin -->
     <script src="js/main.js"></script>
     <!-- Swiper.js JavaScript -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
-        // Ana DOMContentLoaded event'i - tek bir event kullanıyoruz
+        // Sayfa tam yüklendikten sonra çalışacak fonksiyon
         document.addEventListener('DOMContentLoaded', function() {
-            // Sayfa içi JavaScript
-            // initMobileMenu fonksiyonu kaldırıldı - artık mobile-nav.js içinde
-
-            // Swiper ve diğer kodlar aynen devam ediyor...
-            // Mobil cihazlarda dokunma olayını düzgün işlemek için yardımcı fonksiyon
+            // Dokunmatik cihazlarda scroll sorununu çözen olay dinleyicileri
             function preventBodyScroll(event) {
                 if (event.target.closest('.swiper-container, .swiper-wrapper, .swiper-slide')) {
                     event.stopPropagation();
                 }
             }
             
-            // Dokunmatik cihazlarda scroll sorununu çözen olay dinleyicileri
             document.addEventListener('touchstart', preventBodyScroll, { passive: false });
             document.addEventListener('touchmove', preventBodyScroll, { passive: false });
+            
+            // Sayfanın tüm partialları (header dahil) yüklendikten sonra
+            window.addEventListener('load', function() {
+                // IntersectionObserver'ı bir kere oluştur
+                initNavHighlighter();
+                
+                // Menü linklerini güncelle - yeni updateMenuLinks fonksiyonunu kaldıralım
+                // updateMenuLinks() yerine aşağıdaki kodu kullanın:
+                if (typeof setupMenuLinks === 'function') {
+                    setupMenuLinks();
+                }
+            });
+            
+            // IntersectionObserver ile görünür section'ları takip eden fonksiyon
+            function initNavHighlighter() {
+                const sections = document.querySelectorAll('section[id]');
+                if (!sections.length) return;
+                
+                // IntersectionObserver options
+                const options = {
+                    root: null, // viewport kullan
+                    rootMargin: '-20% 0px -70% 0px', // section'ın üst %20'si görünür olduğunda tetikle
+                    threshold: 0 // herhangi bir kısmı görünür olduğunda tetikle
+                };
+                
+                const observer = new IntersectionObserver(entries => {
+                    entries.forEach(entry => {
+                        // Eğer section görünürse
+                        if (entry.isIntersecting) {
+                            const sectionId = entry.target.getAttribute('id');
+                            
+                            // İlgili menü linkini bul ve active yap
+                            const correspondingLink = document.querySelector(`.header__menu-link[href="#${sectionId}"]`);
+                            if (correspondingLink) {
+                                // Tüm menü linklerinden active class'ını kaldır
+                                document.querySelectorAll('.header__menu-link').forEach(link => {
+                                    link.classList.remove('active');
+                                });
+                                
+                                // Bu linke active class'ı ekle
+                                correspondingLink.classList.add('active');
+                            }
+                        }
+                    });
+                }, options);
+                
+                // Her section'ı izlemeye başla
+                sections.forEach(section => {
+                    observer.observe(section);
+                });
+            }
             
             // Swiper yüklendiğini kontrol et
             if (typeof Swiper !== 'undefined') {

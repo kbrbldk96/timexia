@@ -16,31 +16,29 @@ document.addEventListener('DOMContentLoaded', function() {
    * UI'ı çevirilerle güncelle - Global olarak tanımlandı
    */
   function updateUI(translations) {
-    // data-key niteliğine sahip tüm elementleri bul
     const elements = document.querySelectorAll('[data-key]');
-    console.log(`Çevrilecek element sayısı: ${elements.length}`);
     
-    // Her elementin içeriğini ilgili çeviriyle güncelle
     elements.forEach(el => {
-      const key = el.getAttribute('data-key');
-      
-      // Çeviri bulunamazsa anahtar adını kullan
-      if (translations[key]) {
-        // HTML içeren çeviriler için innerHTML kullan
-        if (translations[key].includes('<') && translations[key].includes('>')) {
-          el.innerHTML = translations[key];
+        const key = el.getAttribute('data-key');
+        const hasLink = el.getAttribute('data-has-link') === 'true';
+        
+        if (translations[key]) {
+            if (hasLink) {
+                // Güvenli bir şekilde HTML oluştur
+                const linkData = translations[key + 'Link'] || {};
+                el.innerHTML = formatTextWithLink(translations[key], linkData.url, linkData.text);
+            } else {
+                el.textContent = translations[key];
+            }
         } else {
-          el.textContent = translations[key];
+            // Yedek çeviri sistemini kullan
+            el.textContent = getDefaultTranslation(key) || key;
         }
-      } else {
-        console.warn(`Çeviri bulunamadı: ${key}`);
-        el.textContent = key; // Anahtar adına dön
-      }
-      
-      // Yer tutucu (placeholder) özelliği varsa güncelle
-      if (el.hasAttribute('placeholder') && translations[key + 'Placeholder']) {
-        el.setAttribute('placeholder', translations[key + 'Placeholder']);
-      }
+        
+        // Yer tutucu (placeholder) özelliği varsa güncelle
+        if (el.hasAttribute('placeholder') && translations[key + 'Placeholder']) {
+          el.setAttribute('placeholder', translations[key + 'Placeholder']);
+        }
     });
   }
   

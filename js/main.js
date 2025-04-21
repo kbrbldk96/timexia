@@ -426,22 +426,29 @@ function setupMenuLinks() {
   
   // Sayfa yüklendikten sonra hash'i kontrol et ve uygun section'a kaydır
   if (isHomePage && window.location.hash) {
-    scrollToSection(window.location.hash.substring(1));
+    setTimeout(() => {
+      scrollToSection(window.location.hash.substring(1));
+    }, 300);
   }
   
   menuLinks.forEach(link => {
-    // API linki özel durum, her zaman api.html'e gitsin
+    // API sayfası özel durum
     if (link.getAttribute('data-section') === 'api') {
+      // API linki için ek işlem yapma
       return;
     }
     
     // İlgili section kimliğini al
     const section = link.getAttribute('data-section');
     
-    // Ana sayfadaysak ve anchor tıklanmışsa smooth scroll yap 
-    if (isHomePage && section) {
+    // Bağlantı hedefini belirle
+    if (!section) return;
+    
+    // Ana sayfadaysak, section ID'sine doğrudan kaydır
+    if (isHomePage) {
       link.addEventListener('click', function(e) {
         e.preventDefault();
+        
         scrollToSection(section);
         
         // Aktif menü öğesini güncelle
@@ -470,8 +477,8 @@ function scrollToSection(sectionId) {
   if (mainNav && mobileToggle) {
     mainNav.classList.remove('active');
     mobileToggle.classList.remove('active');
-    document.body.style.overflow = '';
     document.body.classList.remove('menu-open');
+    document.body.style.overflow = '';
   }
   
   // Header'ın yüksekliğini hesaba katarak smooth scroll yap
@@ -530,60 +537,6 @@ document.addEventListener('DOMContentLoaded', function() {
   // Sayfa yüklendikten sonra ve pencere boyutunu değiştirdiğimizde kontrol et
   window.addEventListener('load', checkOverflow);
   window.addEventListener('resize', checkOverflow);
-});
-
-/**
- * Mobil menü işlevselliğini iyileştiren fonksiyon
- */
-function enhanceMobileMenu() {
-  const mobileToggle = document.getElementById('mobile-toggle');
-  const mainNav = document.getElementById('main-nav');
-  
-  if (!mobileToggle || !mainNav) return;
-  
-  // Önce mevcut event listener'ları temizle
-  const newMobileToggle = mobileToggle.cloneNode(true);
-  mobileToggle.parentNode.replaceChild(newMobileToggle, mobileToggle);
-  
-  // Click event için yeni listener ekle - capture true ile
-  newMobileToggle.addEventListener('click', handleMobileToggleClick, true);
-  
-  // Touch event için listener ekle - iOS için
-  newMobileToggle.addEventListener('touchend', handleMobileToggleClick, {
-    passive: false,
-    capture: true
-  });
-  
-  function handleMobileToggleClick(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    
-    console.log('Mobile toggle clicked'); // Debug için
-    
-    // Menü durumunu değiştir
-    mainNav.classList.toggle('active');
-    newMobileToggle.classList.toggle('active');
-    document.body.classList.toggle('menu-open');
-    
-    // Scroll engelleme
-    if (mainNav.classList.contains('active')) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-  }
-}
-
-// Sayfa yüklendikten sonra çalıştır
-document.addEventListener('DOMContentLoaded', function() {
-  enhanceMobileMenu();
-  
-  // Header parçası yüklendikten sonra da çalıştır
-  document.addEventListener('partialLoaded', function(e) {
-    if (e.detail === 'header') {
-      setTimeout(enhanceMobileMenu, 100);
-    }
-  });
 });
 
 /**
